@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dubrick Property Management provides comprehensive residential and commercial management services in Southwestern Ontario.">
+    <title>Dubrick Property Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/logo/appletouchicon.png">
+</head>
+<body>
+    <!-- Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+        <div class="nav-links">
+            <a href="services.html" class="nav-link hover-trigger">Services</a>
+            <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
+            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        </div>
+        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+        </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <button id="close-menu" class="hover-trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+            </svg>
+        </button>
+        <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
+        <a href="services.html" class="mobile-link hover-trigger display-font">Services</a>
+        <a href="portfolio.html" class="mobile-link hover-trigger display-font">Portfolio</a>
+        <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
+    </div>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg">
+            <img src="assets/images/hero-bg.jpg" alt="Dubrick Property Management Building" class="parallax-img" data-speed="0.2">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title display-font">
+                <span class="reveal-text delay-100 hero-line-reveal"><span>DUBRICK</span></span><br>
+                <span class="reveal-text delay-200 hero-line-reveal"><span>PROPERTY</span></span><br>
+                <span class="reveal-text delay-300 hero-line-reveal"><span>MANAGEMENT</span></span>
+            </h1>
+            <p class="hero-subtitle reveal-text">Serving Southern Ontario</p>
+        </div>
+        <div class="hero-footer">
+            <span class="hide-mobile">Est. 1989</span>
+            <div class="bounce-text">
+                <a href="#contact" class="btn-ticket hover-trigger">Partner With Us</a>
+            </div>
+            <span class="hide-mobile">Managing 1,800+ Units</span>
+        </div>
+    </header>
+    <!-- Intro Text -->
+    <section class="intro">
+        <div class="intro-grid">
+            <div class="intro-label reveal-text">
+                <h2 class="section-label about-line">Who We Are</h2>
+            </div>
+            <div class="intro-text reveal-text delay-100">
+                <p class="display-font">For over 35 years, Dubrick has been the standard for property management in <span class="italic font-serif">Southwestern Ontario</span>. We combine bulk purchasing power with hands-on care to maximize the value of your real estate assets.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Services Grid -->
+    <section id="services" class="services">
+        <div class="services-header">
+            <h2 class="section-title display-font reveal-text">Our<br>Expertise</h2>
+        </div>
+        <div class="services-grid">
+            <!-- Fee Management (Administration) -->
+            <div class="service-card group hover-trigger">
+                <img src="assets/images/service-admin.jpg" class="service-img" alt="Administration">
+                <div class="service-overlay"></div>
+                <div class="service-info">
+                    <span class="service-tag">Administration</span>
+                    <h3 class="service-title display-font">Fee Management</h3>
+                    <p class="service-desc">Complete tenant screening, lease negotiation, rent collection, and Landlord & Tenant Board representation.</p>
+                </div>
+            </div>
+            <!-- Financial Reporting (Financial) -->
+            <div class="service-card group hover-trigger">
+                <img src="assets/images/service-accounting.jpg" class="service-img" alt="Accounting">
+                <div class="service-overlay"></div>
+                <div class="service-info">
+                    <span class="service-tag">Financial</span>
+                    <h3 class="service-title display-font">Accounting</h3>
+                    <p class="service-desc">Detailed monthly reporting, general ledger maintenance, budget preparation, and mortgage payment handling.</p>
+                </div>
+            </div>
+            <!-- Maintenance (Operations) -->
+            <div class="service-card group hover-trigger">
+                <img src="assets/images/service-maint.jpg" class="service-img" alt="Maintenance">
+                <div class="service-overlay"></div>
+                <div class="service-info">
+                    <span class="service-tag">Operations</span>
+                    <h3 class="service-title display-font">Property Maintenance</h3>
+                    <p class="service-desc">24-hour emergency service, preventative evaluations, and cost-effective repairs through trusted contractors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact / Visit Info -->
+    <section id="contact" class="services">
+        <div class="services-header contact-header-align">
+            <!-- Left -->
+            <h2 class="section-title display-font reveal-text">Contact<br>Us</h2>
+            <!-- Right -->
+            <div class="contact-header-info reveal-text delay-100">
+                <div class="contact-text-group">
+                    <span class="info-label-small">Location</span>
+                    <p class="info-address">584 Frederick Street<br>Kitchener, ON N2B 2A9</p>
+                </div>
+                <div class="contact-action">
+                    <a href="tel:5195786077" class="btn-ticket btn-dark hover-trigger">(519) 578-6077</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#" class="hover-trigger">LinkedIn</a>
+                <a href="#" class="hover-trigger">Instagram</a>
+            </div>
+            <div class="footer-copy">
+                <span>© <span id="year"></span> Dubrick Property Management Ltd.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dubrick Property Management provides comprehensive residential and commercial management services in Southwestern Ontario.">
+    <title>Dubrick Property Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/logo/appletouchicon.png">
+</head>
+<body>
+    <!-- Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+        <div class="nav-links">
+            <a href="services.html" class="nav-link hover-trigger">Services</a>
+            <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
+            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        </div>
+        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"/>
+                <line x1="4" x2="20" y1="6" y2="6"/>
+                <line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+        </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <button id="close-menu" class="hover-trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+            </svg>
+        </button>
+        <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
+        <a href="services.html" class="mobile-link hover-trigger display-font">Services</a>
+        <a href="portfolio.html" class="mobile-link hover-trigger display-font">Portfolio</a>
+        <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
+    </div>
+    <!-- Hero Section -->
+    <header class="prop-hero hero-short">
+        <div class="hero-bg">
+            <img src="assets/images/header-services.jpg" alt="Architecture" class="parallax-img" data-speed="0.2">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content text-left w-full">
+            <h1 class="hero-title display-font reveal-text delay-100">Our<br>Services</h1>
+        </div>
+    </header>
+    <!-- Management Philosophy -->
+    <section class="intro">
+        <div class="intro-grid">
+            <div class="intro-label reveal-text">
+                <h2 class="section-label about-line">Philosophy</h2>
+            </div>
+            <div class="intro-text reveal-text delay-100">
+                <p class="display-font text-intro">
+                    A family-run business for generations, our team brings over 35 years of industry experience.<br>
+                    We manage your property as if we lived next door, supported by a fully computerized accounting environment.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Detailed Service Sections -->
+    <section class="prop-detail-grid">
+        <!-- Fee Management -->
+        <div class="prop-overview">
+            <div class="service-detail-block">
+                <h3>Tenant Screening & Marketing</h3>
+                <p class="service-body">
+                    We aggressively market vacancies through our internal listing system, local newspapers, and online platforms.<br>
+                    All potential tenants undergo rigorous screening, including:
+                </p>
+                <ul class="detail-list">
+                    <li>Credit and Solvency Checks</li>
+                    <li>Employment Verification</li>
+                    <li>Previous Landlord References</li>
+                    <li>Income History Analysis</li>
+                </ul>
+            </div>
+            <div class="service-detail-block">
+                <h3>Accounting & Financials</h3>
+                <p class="service-body">
+                    Our computerized systems provide transparency and ease. We handle mortgage payments directly from your account balance and provide two detailed monthly reports:
+                </p>
+                <ul class="detail-list">
+                    <li><strong>Transaction Summary:</strong> tenant names, rents paid, and arrears</li>
+                    <li><strong>General Ledger:</strong> summary of receipts and payments by expense category</li>
+                </ul>
+            </div>
+            <div class="prop-overview reveal-text">
+                <div class="service-detail-block">
+                    <h3>Operations & Upkeep</h3>
+                    <p class="service-body">
+                        We leverage bulk purchasing power to keep costs down while maintaining curb appeal. Our maintenance services include:
+                    </p>
+                    <ul class="detail-list">
+                        <li>24/7 Emergency Service for Tenants</li>
+                        <li>Regular Preventative Inspections</li>
+                        <li>Insurance Adjuster Consultations</li>
+                        <li>Tendered Contracts for Large-Scale Projects</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar / Visual -->
+        <div class="prop-stats-box reveal-text delay-300">
+            <h3 class="prop-stats-header">Asset Types Managed</h3>
+            <ul class="detail-list-simple">
+                <li>Residential High Rise</li>
+                <li>Non-Profit Housing</li>
+                <li>Commercial Plazas</li>
+                <li>Industrial Space</li>
+                <li>Condominiums</li>
+            </ul>
+            <!-- Sidebar Call to Action -->
+            <div class="prop-stats-box box-dark reveal-text delay-300">
+                <h3 class="prop-stats-header">Get a Quote</h3>
+                <p class="mb-md font-light">Fees are negotiated based on your portfolio size and individual requirements.</p>
+                <a href="contact.html" class="btn-ticket btn-white hover-trigger">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#" class="hover-trigger">LinkedIn</a>
+                <a href="#" class="hover-trigger">Instagram</a>
+            </div>
+            <div class="footer-copy">
+                <span>© <span id="year"></span> Dubrick Property Management Ltd.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dubrick Property Management provides comprehensive residential and commercial management services in Southwestern Ontario.">
+    <title>Dubrick Property Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/logo/appletouchicon.png">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <!-- Navigation -->
+    <nav class="nav nav-dark-mode">
+        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+        <div class="nav-links">
+            <a href="services.html" class="nav-link hover-trigger">Services</a>
+            <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
+            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        </div>
+        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"/>
+                <line x1="4" x2="20" y1="6" y2="6"/>
+                <line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+        </button>
+    </nav>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu">
+        <button id="close-menu" class="hover-trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+            </svg>
+        </button>
+        <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
+        <a href="services.html" class="mobile-link hover-trigger display-font">Services</a>
+        <a href="portfolio.html" class="mobile-link hover-trigger display-font">Portfolio</a>
+        <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
+    </div>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1 class="page-header-title display-font reveal-text delay-100">Managed<br>Properties</h1>
+    </header>
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid">
+        <!-- Property 1 -->
+        <a href="property.html?id=highland-plaza" class="prop-card group hover-trigger reveal-text delay-200">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-highland.jpg" class="prop-img" alt="Property">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">Highland Plaza</h3>
+                <span class="prop-type">Commercial</span>
+            </div>
+            <p class="prop-loc">Kitchener, ON</p>
+        </a>
+        <!-- Property 2 -->
+        <a href="property.html?id=the-frederick" class="prop-card group hover-trigger reveal-text delay-200">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-frederick.jpg" class="prop-img" alt="Property">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">The Frederick</h3>
+                <span class="prop-type">Residential</span>
+            </div>
+            <p class="prop-loc">Waterloo, ON</p>
+        </a>
+        <!-- Property 3 -->
+        <a href="property.html?id=iron-horse" class="prop-card group hover-trigger reveal-text delay-200">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/hero-bg.jpg" class="prop-img" alt="Property">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">Iron Horse Centre</h3>
+                <span class="prop-type">Industrial</span>
+            </div>
+            <p class="prop-loc">Kitchener, ON</p>
+        </a>
+        <!-- Property 4 -->
+        <a href="property.html?id=westmount-towers" class="prop-card group hover-trigger reveal-text">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-westmount.jpg" class="prop-img" alt="Property">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">Westmount Towers</h3>
+                <span class="prop-type">Residential</span>
+            </div>
+            <p class="prop-loc">Waterloo, ON</p>
+        </a>
+        <!-- Property 5 -->
+        <a href="property.html?id=king-street-lofts" class="prop-card group hover-trigger reveal-text">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-kingst.jpg" class="prop-img" alt="Property">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">King Street Lofts</h3>
+                <span class="prop-type">Mixed Use</span>
+            </div>
+            <p class="prop-loc">Kitchener, ON</p>
+        </a>
+        <!-- Property 6 -->
+        <a href="property.html?id=tech-town-commons" class="prop-card group hover-trigger reveal-text">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-techtown.jpg" class="prop-img" alt="Property">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">Tech Town Commons</h3>
+                <span class="prop-type">Commercial</span>
+            </div>
+            <p class="prop-loc">Waterloo, ON</p>
+        </a>
+        <!-- Property 7: Grand River Medical -->
+        <a href="property.html?id=grand-river-medical" class="prop-card group hover-trigger reveal-text">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-medical.jpg" class="prop-img" alt="Grand River Medical">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">Grand River Medical</h3>
+                <span class="prop-type">Healthcare</span>
+            </div>
+            <p class="prop-loc">Kitchener, ON</p>
+        </a>
+        <!-- Property 8: Riverview Townhomes -->
+        <a href="property.html?id=riverview-townhomes" class="prop-card group hover-trigger reveal-text">
+            <div class="prop-image-wrapper">
+                <img src="assets/images/prop-townhouse.jpg" class="prop-img" alt="Riverview Townhomes">
+                <div class="prop-overlay"></div>
+            </div>
+            <div class="prop-meta">
+                <h3 class="prop-title display-font">Riverview Townhomes</h3>
+                <span class="prop-type">Residential</span>
+            </div>
+            <p class="prop-loc">Cambridge, ON</p>
+        </a>
+    </section>
+    <!-- Footer  -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#" class="hover-trigger">LinkedIn</a>
+                <a href="#" class="hover-trigger">Instagram</a>
+            </div>
+            <div class="footer-copy">
+                <span>© <span id="year"></span> Dubrick Property Management Ltd.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

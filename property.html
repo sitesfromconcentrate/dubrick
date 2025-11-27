@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dubrick Property Management provides comprehensive residential and commercial management services in Southwestern Ontario.">
+    <title>Dubrick Property Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/logo/appletouchicon.png">
+</head>
+<body>
+    <!-- Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+        <div class="nav-links">
+            <a href="services.html" class="nav-link hover-trigger">Services</a>
+            <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
+            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        </div>
+        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"/>
+                <line x1="4" x2="20" y1="6" y2="6"/>
+                <line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+        </button>
+    </nav>
+    <!-- Dynamic Mobile Menu -->
+    <div id="mobile-menu">
+        <button id="close-menu" class="hover-trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+            </svg>
+        </button>
+        <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
+        <a href="services.html" class="mobile-link hover-trigger display-font">Services</a>
+        <a href="portfolio.html" class="mobile-link hover-trigger display-font">Portfolio</a>
+        <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
+    </div>
+    <!-- Hero Section -->
+    <header class="prop-hero">
+        <div class="hero-bg">
+            <img id="dynamic-image" src="" alt="" class="parallax-img" data-speed="0.2">
+            <div class="hero-overlay"></div>
+        </div>
+            <!-- ID: dynamic-subtitle & dynamic-title -->
+        <div class="hero-content text-left w-full">
+            <p id="dynamic-subtitle" class="hero-subtitle reveal-text">Loading...</p>
+            <h1 id="dynamic-title" class="hero-title display-font reveal-text delay-100">Loading...</h1>
+        </div>
+    </header>
+    <!-- Content Section -->
+    <section class="prop-detail-grid">
+        <!-- Left Column -->
+        <div class="prop-overview reveal-text delay-200">
+            <h2 class="display-font">Overview</h2>
+            <p id="dynamic-desc">Loading property details...</p>
+            <div class="prop-content-footer">
+                 <a href="portfolio.html" class="btn-ticket btn-dark hover-trigger">← Back to Portfolio</a>
+            </div>
+        </div>
+        <!-- Right Column -->
+        <div class="prop-stats-box reveal-text delay-300">
+            <h3 class="prop-stats-header">Property Stats</h3>
+            <div id="dynamic-stats">
+                <!-- Stats injected here by JS -->
+            </div>
+            <div class="prop-location-group">
+                <p class="prop-location-label">Location</p>
+                <p id="dynamic-location" class="prop-location-value">Loading...</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#" class="hover-trigger">LinkedIn</a>
+                <a href="#" class="hover-trigger">Instagram</a>
+            </div>
+            <div class="footer-copy">
+                <span>© <span id="year"></span> Dubrick Property Management Ltd.</span>
+            </div>
+        </div>
+    </footer>
+    <!-- Load Data Before Main Script -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <!-- Page Specific Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Get the ID from the URL (e.g., property.html?id=highland-plaza)
+            const params = new URLSearchParams(window.location.search);
+            const propId = params.get('id');
+            // 2. Find the data in our "Database"
+            const data = propertyData[propId];
+            // 3. If data exists, inject it into the HTML
+            if (data) {
+                document.title = `${data.title} | DUBRICK`;
+                document.getElementById('dynamic-title').innerHTML = `<span>${data.title}</span>`;
+                document.getElementById('dynamic-subtitle').textContent = data.subtitle;
+                const imgElement = document.getElementById('dynamic-image');
+                imgElement.src = data.image;
+                imgElement.alt = data.title + " - Property Image"; // for Accessibility & SEO
+                document.getElementById('dynamic-desc').textContent = data.description;
+                document.getElementById('dynamic-location').textContent = data.location;
+
+                // Render Stats Loop
+                const statsContainer = document.getElementById('dynamic-stats');
+                statsContainer.innerHTML = data.stats.map(stat => `
+                    <div class="stat-row">
+                        <span class="stat-label">${stat.label}</span>
+                        <span class="stat-value">${stat.value}</span>
+                    </div>
+                `).join('');
+            } else {
+                // Handle error / ID not found
+                document.getElementById('dynamic-title').textContent = "Property Not Found";
+                document.getElementById('dynamic-desc').innerHTML = "We couldn't find the property you're looking for. <a href='portfolio.html' class='underline'>Return to Portfolio</a>.";
+            }
+        });
+    </script>
+</body>
+</html>
