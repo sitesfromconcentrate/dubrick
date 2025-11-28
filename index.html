@@ -15,23 +15,28 @@
     <div id="cursor-ring"></div>
     <!-- Navigation -->
     <nav class="nav">
-        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
-        <div class="nav-links">
-            <a href="services.html" class="nav-link hover-trigger">Services</a>
-            <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
-            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        <div class="navbar container">
+            <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+            <div class="nav-links">
+                <a href="services.html" class="nav-link hover-trigger">Services</a>
+                <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
+                <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+            </div>
+            <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
+                </svg>
+            </button>
         </div>
-        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
-            </svg>
-        </button>
     </nav>
     <!-- Mobile Menu -->
     <div id="mobile-menu">
         <button id="close-menu" class="hover-trigger">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+                <path d="M18 6 6 18"/>
+                <path d="m6 6 12 12"/>
             </svg>
         </button>
         <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
@@ -45,15 +50,15 @@
             <img src="assets/images/hero-bg.jpg" alt="Dubrick Property Management Building" class="parallax-img" data-speed="0.2">
             <div class="hero-overlay"></div>
         </div>
-        <div class="hero-content">
+        <div class="hero-content container">
             <h1 class="hero-title display-font">
-                <span class="reveal-text delay-100 hero-line-reveal"><span>DUBRICK</span></span><br>
-                <span class="reveal-text delay-200 hero-line-reveal"><span>PROPERTY</span></span><br>
-                <span class="reveal-text delay-300 hero-line-reveal"><span>MANAGEMENT</span></span>
+                <span class="reveal-text delay-100 hero-line-reveal hero-line-1"><span>DUBRICK</span></span>
+                <span class="reveal-text delay-300 hero-line-reveal hero-line-2"><span>PROPERTY</span></span>
+                <span class="reveal-text delay-500 hero-line-reveal hero-line-3"><span>MANAGEMENT</span></span>
             </h1>
             <p class="hero-subtitle reveal-text">Serving Southern Ontario</p>
         </div>
-        <div class="hero-footer">
+        <div class="hero-footer container">
             <span class="hide-mobile">EST. 1989</span>
             <div class="bounce-text">
                 <a href="#contact" class="btn-ticket hover-trigger">PARTNER WITH US</a>
@@ -62,77 +67,75 @@
         </div>
     </header>
     <!-- Intro Text -->
-    <section class="intro">
-        <div class="intro-grid">
-            <div class="intro-label reveal-text">
-                <h2 class="section-label about-line">Who We Are</h2>
-            </div>
-            <div class="intro-text reveal-text delay-100">
-                <p class="display-font">For over 35 years, Dubrick has been the standard for property management in <span class="italic font-serif">Southwestern Ontario</span>. We combine bulk purchasing power with hands-on care to maximize the value of your real estate assets.</p>
-            </div>
+    <section id="intro" class="intro-grid container ">
+        <div class="intro-label reveal-text">
+            <h2 class="section-label about-line">Who We Are</h2>
+        </div>
+        <div class="intro-text reveal-text delay-100">
+            <p class="display-font">For over 35 years, Dubrick has been the standard for property management in <span class="italic font-serif">Southwestern Ontario</span>. We combine bulk purchasing power with hands-on care to maximize the value of your real estate assets.</p>
         </div>
     </section>
-    <!-- Services Grid -->
-    <section id="services" class="services">
-        <div class="services-header">
+    <!-- Reusable Section Header -->
+    <section class="section-header-wrapper bg-charcoal">
+        <div class="container">
             <h2 class="section-title display-font reveal-text">Our<br>Expertise</h2>
         </div>
-        <div class="services-grid">
-            <!-- Fee Management (Administration) -->
-            <div class="service-card hover-trigger">
-                <img src="assets/images/service-admin.jpg" class="service-img" alt="Administration">
-                <div class="service-overlay"></div>
-                <div class="service-info">
-                    <span class="service-tag">Administration</span>
-                    <h3 class="service-title display-font">Fee Management</h3>
-                    <p class="service-desc">Complete tenant screening, lease negotiation, rent collection, and Landlord & Tenant Board representation.</p>
+    </section>
+    <!-- Services Grid with Dark Background -->
+    <section id="services" class="services-section">
+        <div class="service-container">
+            <div class="services-grid"> 
+                <!-- Fee Management -->
+                <div class="service-card hover-trigger reveal-text delay-100">
+                    <img src="assets/images/service-admin.jpg" class="service-img" alt="Administration">
+                    <div class="service-overlay"></div>
+                    <div class="service-info">
+                        <span class="service-tag">Administration</span>
+                        <h3 class="service-title display-font">Fee Management</h3>
+                        <p class="service-desc">Complete tenant screening, lease negotiation, rent collection, and Landlord & Tenant Board representation.</p>
+                    </div>
                 </div>
-            </div>
-            <!-- Financial Reporting (Financial) -->
-            <div class="service-card hover-trigger">
-                <img src="assets/images/service-accounting.jpg" class="service-img" alt="Accounting">
-                <div class="service-overlay"></div>
-                <div class="service-info">
-                    <span class="service-tag">Financial</span>
-                    <h3 class="service-title display-font">Accounting</h3>
-                    <p class="service-desc">Detailed monthly reporting, general ledger maintenance, budget preparation, and mortgage payment handling.</p>
+                <!-- Financial Reporting -->
+                <div class="service-card hover-trigger reveal-text delay-300">
+                    <img src="assets/images/service-accounting.jpg" class="service-img" alt="Accounting">
+                    <div class="service-overlay"></div>
+                    <div class="service-info">
+                        <span class="service-tag">Financial</span>
+                        <h3 class="service-title display-font">Accounting</h3>
+                        <p class="service-desc">Detailed monthly reporting, general ledger maintenance, budget preparation, and mortgage payment handling.</p>
+                    </div>
                 </div>
-            </div>
-            <!-- Maintenance (Operations) -->
-            <div class="service-card hover-trigger">
-                <img src="assets/images/service-maint.jpg" class="service-img" alt="Maintenance">
-                <div class="service-overlay"></div>
-                <div class="service-info">
-                    <span class="service-tag">Operations</span>
-                    <h3 class="service-title display-font">Property Maintenance</h3>
-                    <p class="service-desc">24-hour emergency service, preventative evaluations, and cost-effective repairs through trusted contractors.</p>
+                <!-- Maintenance -->
+                <div class="service-card hover-trigger reveal-text delay-500">
+                    <img src="assets/images/service-maint.jpg" class="service-img" alt="Maintenance">
+                    <div class="service-overlay"></div>
+                    <div class="service-info">
+                        <span class="service-tag">Operations</span>
+                        <h3 class="service-title display-font">Property Maintenance</h3>
+                        <p class="service-desc">24-hour emergency service, preventative evaluations, and cost-effective repairs through trusted contractors.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Contact / Visit Info -->
-    <section id="contact" class="services">
-        <div class="services-header contact-header-align">
-            <!-- Left -->
-            <h2 class="section-title display-font reveal-text">Contact<br>Us</h2>
-            <!-- Right -->
-            <div class="contact-header-info reveal-text delay-100">
-                <div class="contact-text-group">
-                    <span class="info-label">Location</span>
-                    <p class="info-address">584 Frederick Street<br>Kitchener, ON<br>N2B 2A9</p>
-                </div>
-                <div class="contact-action">
-                    <a href="tel:5195786077" class="btn-ticket btn-dark hover-trigger">(519) 578-6077</a>
-                </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-grid">
+            <!-- 1. Title (Left) -->
+            <div class="contact-item-title">
+                <h2 class="section-title display-font reveal-text">Contact<br>Us</h2>
+            </div>
+            <!-- 2. Phone Button (Center) -->
+            <div class="contact-item-btn reveal-text delay-100">
+                <a href="tel:5195786077" class="btn-ticket btn-white hover-trigger">(519) 578-6077</a>
+            </div>
+            <!-- 3. Address (Right) -->
+            <div class="contact-item-address reveal-text delay-300">
+                <span class="info-label">Main Office</span>
+                <p class="info-address">584 Frederick Street<br>Kitchener, ON<br>N2B 2A9</p>
             </div>
         </div>
     </section>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-bottom">
-            <span>© <span id="year"></span> DUBRICK PROPERTY MANAGEMENT LTD.</span>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

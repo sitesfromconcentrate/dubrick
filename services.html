@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore our full suite of services including tenant screening, financial reporting, and 24/7 property maintenance. Expert care for your real estate assets.">
+    <meta name="description" content="Explore our full suite of services including tenant screening, financial reporting, and 24/7 property maintenance.">
     <title>Dubrick Property Management</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -15,19 +15,21 @@
     <div id="cursor-ring"></div>
     <!-- Navigation -->
     <nav class="nav">
-        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link hover-trigger">Home</a>
-            <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
-            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        <div class="navbar container">
+            <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link hover-trigger">Home</a>
+                <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
+                <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+            </div>
+            <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
+                </svg>
+            </button>
         </div>
-        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="4" x2="20" y1="12" y2="12"/>
-                <line x1="4" x2="20" y1="6" y2="6"/>
-                <line x1="4" x2="20" y1="18" y2="18"/>
-            </svg>
-        </button>
     </nav>
     <!-- Mobile Menu -->
     <div id="mobile-menu">
@@ -52,28 +54,24 @@
         </div>
     </header>
     <!-- Management Philosophy -->
-    <section class="intro">
-        <div class="intro-grid">
-            <div class="intro-label reveal-text">
-                <h2 class="section-label about-line">Philosophy</h2>
-            </div>
-            <div class="intro-text reveal-text delay-100">
-                <p class="display-font text-intro">
-                    A family-run business for generations, our team brings over 35 years of industry experience.<br>
-                    We manage your property as if we lived next door, supported by a fully computerized accounting environment.
-                </p>
-            </div>
+    <section class="intro-grid container">
+        <div class="intro-label reveal-text">
+            <h2 class="section-label about-line">Philosophy</h2>
+        </div>
+        <div class="intro-text reveal-text delay-100">
+            <p class="display-font">
+                A family-run business for generations, our team brings over 35 years of industry experience. We manage your property as if we lived next door, supported by a fully computerized accounting environment.
+            </p>
         </div>
     </section>
     <!-- Detailed Service Sections -->
     <section class="prop-detail-grid">
-        <!-- Fee Management -->
-        <div class="prop-overview">
+        <!-- Left Column: Content -->
+        <div class="prop-overview reveal-text delay-300">
             <div class="service-detail-block">
-                <h3>Tenant Screening & Marketing</h3>
+                <h3 class="display-font">Tenant Screening & Marketing</h3>
                 <p class="service-body">
-                    We aggressively market vacancies through our internal listing system, local newspapers, and online platforms.<br>
-                    All potential tenants undergo rigorous screening, including:
+                    We aggressively market vacancies through our internal listing system, local newspapers, and online platforms. All potential tenants undergo rigorous screening, including:
                 </p>
                 <ul class="detail-list">
                     <li>Credit and Solvency Checks</li>
@@ -82,33 +80,30 @@
                     <li>Income History Analysis</li>
                 </ul>
             </div>
+            
             <div class="service-detail-block">
-                <h3>Accounting & Financials</h3>
-                <p class="service-body">
-                    Our computerized systems provide transparency and ease. We handle mortgage payments directly from your account balance and provide two detailed monthly reports:
-                </p>
+                <h3 class="display-font">Accounting & Financials</h3>
+                <p class="service-body">Our computerized systems provide transparency and ease. We handle mortgage payments directly from your account balance and provide two detailed monthly reports:</p>
                 <ul class="detail-list">
                     <li><strong>Transaction Summary:</strong> tenant names, rents paid, and arrears</li>
                     <li><strong>General Ledger:</strong> summary of receipts and payments by expense category</li>
                 </ul>
             </div>
-            <div class="prop-overview reveal-text">
-                <div class="service-detail-block">
-                    <h3>Operations & Upkeep</h3>
-                    <p class="service-body">
-                        We leverage bulk purchasing power to keep costs down while maintaining curb appeal. Our maintenance services include:
-                    </p>
-                    <ul class="detail-list">
-                        <li>24/7 Emergency Service for Tenants</li>
-                        <li>Regular Preventative Inspections</li>
-                        <li>Insurance Adjuster Consultations</li>
-                        <li>Tendered Contracts for Large-Scale Projects</li>
-                    </ul>
-                </div>
+
+            <div class="service-detail-block">
+                <h3 class="display-font">Operations & Upkeep</h3>
+                <p class="service-body">We leverage bulk purchasing power to keep costs down while maintaining curb appeal. Our maintenance services include:</p>
+                <ul class="detail-list">
+                    <li>24/7 Emergency Service for Tenants</li>
+                    <li>Regular Preventative Inspections</li>
+                    <li>Insurance Adjuster Consultations</li>
+                    <li>Tendered Contracts for Large-Scale Projects</li>
+                </ul>
             </div>
         </div>
         <!-- Sidebar / Visual -->
-        <div class="prop-stats-box reveal-text delay-300">
+        <!-- Right Column: Sidebar / Visual -->
+        <div class="prop-stats-box reveal-text delay-500">
             <h3 class="prop-stats-header">Asset Types Managed</h3>
             <ul class="detail-list-simple">
                 <li>Residential High Rise</li>
@@ -120,7 +115,7 @@
             <!-- Sidebar Call to Action -->
             <div class="prop-stats-box box-dark reveal-text delay-300">
                 <h3 class="prop-stats-header">Get a Quote</h3>
-                <p class="mb-md font-light">Fees are negotiated based on your portfolio size and individual requirements.</p>
+                <p class="font-light">Fees are negotiated based on your portfolio size and individual requirements.</p>
                 <a href="contact.html" class="btn-ticket btn-white hover-trigger">Contact Us</a>
             </div>
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse our diverse portfolio of managed properties across Kitchener, Waterloo, and Cambridge. Managing over 1,800 units of commercial, residential, and industrial space.">
+    <meta name="description" content="Browse our diverse portfolio of managed properties across Kitchener, Waterloo, and Cambridge.">
     <title>Dubrick Property Management</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -15,19 +15,21 @@
     <div id="cursor-ring"></div>
     <!-- Navigation -->
     <nav class="nav nav-dark-mode">
-        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link hover-trigger">Home</a>
-            <a href="services.html" class="nav-link hover-trigger">Services</a>
-            <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+        <div class="navbar container">
+            <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link hover-trigger">Home</a>
+                <a href="services.html" class="nav-link hover-trigger">Services</a>
+                <a href="contact.html" class="nav-link hover-trigger">Contact</a>
+            </div>
+            <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
+                </svg>
+            </button>
         </div>
-        <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="4" x2="20" y1="12" y2="12"/>
-                <line x1="4" x2="20" y1="6" y2="6"/>
-                <line x1="4" x2="20" y1="18" y2="18"/>
-            </svg>
-        </button>
     </nav>
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu">
@@ -42,15 +44,16 @@
         <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
     </div>
     <!-- Page Header -->
+    <!-- This differs from the standard Hero to allow for the clean white/text look specific to Portfolio -->
     <header class="page-header">
         <h1 class="page-header-title display-font reveal-text delay-100">Managed<br>Properties</h1>
     </header>
     <!-- Portfolio Grid -->
     <section class="portfolio-grid">
         <!-- Property 1 -->
-        <a href="property.html?id=highland-plaza" class="prop-card hover-trigger reveal-text delay-200">
+        <a href="property.html?id=highland-plaza" class="prop-card hover-trigger reveal-text delay-300">
             <div class="prop-image-wrapper">
-                <img src="assets/images/prop-highland.jpg" class="prop-img" alt="Property">
+                <img src="assets/images/prop-highland.jpg" class="prop-img" alt="Highland Plaza">
                 <div class="prop-overlay"></div>
             </div>
             <div class="prop-meta">
@@ -60,9 +63,9 @@
             <p class="prop-loc">Kitchener, ON</p>
         </a>
         <!-- Property 2 -->
-        <a href="property.html?id=the-frederick" class="prop-card hover-trigger reveal-text delay-200">
+        <a href="property.html?id=the-frederick" class="prop-card hover-trigger reveal-text delay-300">
             <div class="prop-image-wrapper">
-                <img src="assets/images/prop-frederick.jpg" class="prop-img" alt="Property">
+                <img src="assets/images/prop-frederick.jpg" class="prop-img" alt="The Frederick">
                 <div class="prop-overlay"></div>
             </div>
             <div class="prop-meta">
@@ -72,9 +75,9 @@
             <p class="prop-loc">Waterloo, ON</p>
         </a>
         <!-- Property 3 -->
-        <a href="property.html?id=iron-horse" class="prop-card hover-trigger reveal-text delay-200">
+        <a href="property.html?id=iron-horse" class="prop-card hover-trigger reveal-text delay-300">
             <div class="prop-image-wrapper">
-                <img src="assets/images/hero-bg.jpg" class="prop-img" alt="Property">
+                <img src="assets/images/hero-bg.jpg" class="prop-img" alt="Iron Horse Centre">
                 <div class="prop-overlay"></div>
             </div>
             <div class="prop-meta">
@@ -86,7 +89,7 @@
         <!-- Property 4 -->
         <a href="property.html?id=westmount-towers" class="prop-card hover-trigger reveal-text">
             <div class="prop-image-wrapper">
-                <img src="assets/images/prop-westmount.jpg" class="prop-img" alt="Property">
+                <img src="assets/images/prop-westmount.jpg" class="prop-img" alt="Westmount Towers">
                 <div class="prop-overlay"></div>
             </div>
             <div class="prop-meta">
@@ -98,7 +101,7 @@
         <!-- Property 5 -->
         <a href="property.html?id=king-street-lofts" class="prop-card hover-trigger reveal-text">
             <div class="prop-image-wrapper">
-                <img src="assets/images/prop-kingst.jpg" class="prop-img" alt="Property">
+                <img src="assets/images/prop-kingst.jpg" class="prop-img" alt="King Street Lofts">
                 <div class="prop-overlay"></div>
             </div>
             <div class="prop-meta">
@@ -110,7 +113,7 @@
         <!-- Property 6 -->
         <a href="property.html?id=tech-town-commons" class="prop-card hover-trigger reveal-text">
             <div class="prop-image-wrapper">
-                <img src="assets/images/prop-techtown.jpg" class="prop-img" alt="Property">
+                <img src="assets/images/prop-techtown.jpg" class="prop-img" alt="Tech Town Commons">
                 <div class="prop-overlay"></div>
             </div>
             <div class="prop-meta">
@@ -119,7 +122,7 @@
             </div>
             <p class="prop-loc">Waterloo, ON</p>
         </a>
-        <!-- Property 7: Grand River Medical -->
+        <!-- Property 7 -->
         <a href="property.html?id=grand-river-medical" class="prop-card hover-trigger reveal-text">
             <div class="prop-image-wrapper">
                 <img src="assets/images/prop-medical.jpg" class="prop-img" alt="Grand River Medical">
@@ -131,7 +134,7 @@
             </div>
             <p class="prop-loc">Kitchener, ON</p>
         </a>
-        <!-- Property 8: Riverview Townhomes -->
+        <!-- Property 8 -->
         <a href="property.html?id=riverview-townhomes" class="prop-card hover-trigger reveal-text">
             <div class="prop-image-wrapper">
                 <img src="assets/images/prop-townhouse.jpg" class="prop-img" alt="Riverview Townhomes">
