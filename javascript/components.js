@@ -57,9 +57,12 @@ function setActiveLink() {
     const path = window.location.pathname;
     const page = path.split("/").pop() || "index.html"; // Default to index if root
     
+    // Selects only desktop links (.nav-link), leaving mobile links (.mobile-link) alone
     document.querySelectorAll('.nav-link').forEach(link => {
+        // Check if the link href matches the current page
         if(link.getAttribute('href') === page) {
-            link.style.borderBottom = "1px solid currentColor";
+            // Hide the active link
+            link.style.display = "none";
         }
     });
 }

@@ -55,26 +55,57 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 @media (max-width: 768px) { #cursor-dot, #cursor-ring { display: none; } body { cursor: auto; } }
 
 /* --- Buttons --- */
+/* style.css - Section 2. GLOBAL UI COMPONENTS */
+
+/* --- Base Button Structure --- */
 .btn-ticket {
-    display: inline-block; background: transparent;
-    color: var(--text-light); border: 1px solid var(--text-light);
-    padding: 0.75rem 2rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em;
-    position: relative; overflow: hidden; cursor: pointer;
+    display: inline-block; 
+    background: transparent;
+    padding: 0.75rem 2rem; 
+    font-size: 0.875rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em;
+    position: relative; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: 1px solid; /* We set color in the variants below */
+    
+    /* Ensure border color transitions smoothly */
     transition: color 0.3s, border-color 0.3s;
 }
+/* The Slide-in Background Effect */
 .btn-ticket::before {
-    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-    background: var(--secondary-bg); transition: left 0.3s ease; z-index: -1;
+    content: ''; 
+    position: absolute; 
+    top: 0; left: -100%; 
+    width: 100%; height: 100%;
+    background: var(--secondary-bg); /* Fills with Black */
+    transition: left 0.3s ease; 
+    z-index: -1;
 }
 .btn-ticket:hover::before { left: 0; }
-.btn-ticket:hover { color: var(--text-light); border-color: var(--secondary-bg); }
-
-/* Button Variants */
-.btn-dark { border-color: var(--text-main); color: var(--text-main); }
-.btn-dark:hover { color: var(--text-light); }
-.btn-white { border-color: white; color: white; }
-.btn-white:hover { color: var(--secondary-bg); background-color: white; }
-
+/* --- Button Variant: Dark (For use on Light Backgrounds) --- */
+.btn-dark { 
+    border-color: var(--text-main); /* Starts Black */
+    color: var(--text-main);        /* Starts Black */
+}
+.btn-dark:hover { 
+    /* Force White Text & White Border on Hover */
+    color: var(--text-light) !important; 
+    border-color: var(--text-light) !important; 
+}
+/* --- Button Variant: White (For use on Dark Backgrounds) --- */
+.btn-white { 
+    border-color: white; 
+    color: white; 
+}
+.btn-white:hover { 
+    /* For the white button, we usually want it to stay white or turn dark?
+       Standard inverted behavior for consistency: */
+    color: white !important;
+    background-color: rgba(255,255,255,0.1); /* Subtle highlight instead of fill */
+    border-color: white !important;
+}
 
 /* ==========================================================================
    3. NAVIGATION (Top of Index.html)
@@ -143,7 +174,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     position: absolute; top: -15%; left: 0; width: 100%; height: 130%;
     object-fit: cover; object-position: center; will-change: transform;
 }
-.hero-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.2); }
+.hero-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.4); }
 .hero-content { position: relative; z-index: 10; color: var(--text-light); padding: 1rem; }
 
 /* --- Index Hero Specifics (.hero) --- */
@@ -165,10 +196,11 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 .hero-subtitle {
     text-transform: uppercase;
-    letter-spacing: 0.4em;
-    font-size: 1.25rem; 
-    font-weight: 700;   
+    letter-spacing: 0.1em;
+    font-weight: 700; 
+    font-size: clamp(1rem, 2.5vw, 1.5rem); 
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 /* Line Reveal Animation (Index Only) */
@@ -176,9 +208,9 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     display: block; 
     margin: 0;
 }
-.hero-line-1 { font-size: clamp(3rem, 13vw, 8.8rem); }
-.hero-line-2 { font-size: clamp(2.5rem, 10vw, 7rem); }
-.hero-line-3 { font-size: clamp(2rem, 8vw, 5rem); }
+.hero-line-1 { font-size: clamp(4rem, 13vw, 8.8rem); }
+.hero-line-2 { font-size: clamp(3.2rem, 10vw, 7rem); }
+.hero-line-3 { font-size: clamp(2.2rem, 8vw, 5rem); }
 
 .hero-line-reveal > span {
     display: inline-block; transform: translateY(110%);
@@ -291,8 +323,21 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease;
 }
 .service-overlay {
-    position: absolute; inset: 0; background: rgba(0,0,0,0.2);
-    opacity: 0; transition: opacity 0.3s;
+    position: absolute; 
+    inset: 0; 
+    /* 1. Create the Gradient */
+    /* top (0%) is transparent, bottom (100%) is dark (80% black) */
+    /* The '40%' start point keeps the top of the image clear */
+    background: linear-gradient(
+        to bottom, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.5) 40%, 
+        rgba(0,0,0,1) 100%
+    );
+    /* 2. DEFAULT STATE: Full Strength */
+    opacity: 1; 
+    transition: opacity 0.4s ease;
+    z-index: 1; /* Ensures it sits below text but above image */
 }
 .service-info {
     position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem;
@@ -301,7 +346,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 
 /* Card Hover States */
 .service-card:hover .service-img { transform: scale(1.1); }
-.service-card:hover .service-overlay { opacity: 1; }
+.service-card:hover .service-overlay { opacity: 0.6; }
 .service-card:hover .service-info { transform: translateY(0); }
 
 .service-tag { /* Typography inside Card */
