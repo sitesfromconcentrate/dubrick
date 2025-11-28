@@ -3,7 +3,7 @@ export function loadHeader(isDarkMode = false) {
     
     const html = `
     <div class="navbar container">
-        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
+        <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logo.png" alt="Dubrick Property Management" class="logo-img"></a>
         <div class="nav-links">
             <a href="index.html" class="nav-link hover-trigger">Home</a>
             <a href="services.html" class="nav-link hover-trigger">Services</a>

@@ -87,7 +87,8 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .logo-img {
-    height: 4rem; width: auto; filter: invert(1); /* Invert black logo to white */
+    height: 4rem; width: auto;
+    /* filter: invert(1);  Invert black logo to white */
     transition: filter 0.4s;
 }
 .nav-links { display: flex; gap: 3rem; }
