@@ -13,41 +13,18 @@
     <!-- Custom Cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-ring"></div>
-    <!-- Navigation -->
-    <nav class="nav nav-dark-mode">
-        <div class="navbar container">
-            <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link hover-trigger">Home</a>
-                <a href="services.html" class="nav-link hover-trigger">Services</a>
-                <a href="contact.html" class="nav-link hover-trigger">Contact</a>
-            </div>
-            <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="4" x2="20" y1="12" y2="12"/>
-                    <line x1="4" x2="20" y1="6" y2="6"/>
-                    <line x1="4" x2="20" y1="18" y2="18"/>
-                </svg>
-            </button>
-        </div>
-    </nav>
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu">
-        <button id="close-menu" class="hover-trigger">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-            </svg>
-        </button>
-        <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
-        <a href="services.html" class="mobile-link hover-trigger display-font">Services</a>
-        <a href="portfolio.html" class="mobile-link hover-trigger display-font">Portfolio</a>
-        <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
-    </div>
+    
+    <!-- Navigation (Injected by JS - handles dark mode auto) -->
+    <nav class="nav"></nav>
+    
+    <!-- Mobile Menu (Injected by JS) -->
+    <div id="mobile-menu"></div>
+    
     <!-- Page Header -->
-    <!-- This differs from the standard Hero to allow for the clean white/text look specific to Portfolio -->
     <header class="page-header">
         <h1 class="page-header-title display-font reveal-text delay-100">Managed<br>Properties</h1>
     </header>
+    
     <!-- Portfolio Grid -->
     <section class="portfolio-grid">
         <!-- Property 1 -->
@@ -147,12 +124,11 @@
             <p class="prop-loc">Cambridge, ON</p>
         </a>
     </section>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-bottom">
-            <span>© <span id="year"></span> DUBRICK PROPERTY MANAGEMENT LTD.</span>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+    
+    <!-- Footer (Injected by JS) -->
+    <footer></footer>
+
+    <!-- Main Module -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>

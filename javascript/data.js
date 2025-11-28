@@ -1,4 +1,4 @@
-const propertyData = {
+export const propertyData = {
     "highland-plaza": {
         title: "Highland Plaza",
         subtitle: "Commercial • Retail",

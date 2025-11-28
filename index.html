@@ -13,37 +13,13 @@
     <!-- Cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-ring"></div>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="navbar container">
-            <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logotight.png" alt="Dubrick Property Management" class="logo-img"></a>
-            <div class="nav-links">
-                <a href="services.html" class="nav-link hover-trigger">Services</a>
-                <a href="portfolio.html" class="nav-link hover-trigger">Portfolio</a>
-                <a href="contact.html" class="nav-link hover-trigger">Contact</a>
-            </div>
-            <button class="mobile-menu-btn hover-trigger" id="mobile-menu-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="4" x2="20" y1="12" y2="12"/>
-                    <line x1="4" x2="20" y1="6" y2="6"/>
-                    <line x1="4" x2="20" y1="18" y2="18"/>
-                </svg>
-            </button>
-        </div>
-    </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu">
-        <button id="close-menu" class="hover-trigger">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18"/>
-                <path d="m6 6 12 12"/>
-            </svg>
-        </button>
-        <a href="index.html" class="mobile-link hover-trigger display-font">Home</a>
-        <a href="services.html" class="mobile-link hover-trigger display-font">Services</a>
-        <a href="portfolio.html" class="mobile-link hover-trigger display-font">Portfolio</a>
-        <a href="contact.html" class="mobile-link hover-trigger display-font">Contact</a>
-    </div>
+    
+    <!-- Navigation (Injected by JS) -->
+    <nav class="nav"></nav>
+    
+    <!-- Mobile Menu (Injected by JS) -->
+    <div id="mobile-menu"></div>
+    
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-bg">
@@ -66,6 +42,7 @@
             <span class="hide-mobile">MANAGING 1,800+ UNITS</span>
         </div>
     </header>
+    
     <!-- Intro Text -->
     <section id="intro" class="intro-grid container ">
         <div class="intro-label reveal-text">
@@ -75,12 +52,14 @@
             <p class="display-font">For over 35 years, Dubrick has been the standard for property management in <span class="italic font-serif">Southwestern Ontario</span>. We combine bulk purchasing power with hands-on care to maximize the value of your real estate assets.</p>
         </div>
     </section>
+    
     <!-- Reusable Section Header -->
     <section class="section-header-wrapper bg-charcoal">
         <div class="container">
             <h2 class="section-title display-font reveal-text">Our<br>Expertise</h2>
         </div>
     </section>
+    
     <!-- Services Grid with Dark Background -->
     <section id="services" class="services-section">
         <div class="service-container">
@@ -118,6 +97,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container contact-grid">
@@ -136,6 +116,11 @@
             </div>
         </div>
     </section>
-<script src="script.js"></script>
+    
+    <!-- Footer (Injected by JS) -->
+    <footer></footer>
+
+    <!-- Main Module -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -170,35 +170,15 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     display: block; 
     margin: 0;
 }
-.hero-line-1 {
-    font-size: 8.8rem; 
-    font-weight: 800;
-    line-height: 0.8;
-    z-index: 2; /* Layer on top if they overlap */
-}
-.hero-line-2 {
-    font-size: 7rem;
-    font-weight: 800;
-    line-height: 0.85;
-}
-.hero-line-3 {
-    font-size: 5rem;
-    font-weight: 800;
-    line-height: 0.85;
-}
+.hero-line-1 { font-size: clamp(3rem, 13vw, 8.8rem); }
+.hero-line-2 { font-size: clamp(2.5rem, 10vw, 7rem); }
+.hero-line-3 { font-size: clamp(2rem, 8vw, 5rem); }
+
 .hero-line-reveal > span {
     display: inline-block; transform: translateY(110%);
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal-text.visible.hero-line-reveal > span { transform: translateY(0); }
-
-/* --- MOBILE ADJUSTMENTS --- */
-/* You must resize these for mobile, or they will overflow */
-@media (max-width: 768px) {
-    .hero-line-1 { font-size: 4.5rem; }
-    .hero-line-2 { font-size: 3.8rem; }
-    .hero-line-3 { font-size: 2.8rem; }
-}
 
 
 
@@ -511,3 +491,11 @@ footer {
 .box-dark { background-color: var(--secondary-bg); color: var(--primary-bg); }
 .box-dark .prop-stats-header { border-color: rgba(255, 255, 255, 0.2); }
 @media (max-width: 900px) { .prop-detail-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-input { 
+    width: 100%; padding: 1rem; background: transparent; 
+    border: 1px solid #ccc; font-family: var(--font-main); 
+    font-size: 1rem; transition: border-color 0.3s;
+}
+.form-input:focus { outline: none; border-color: var(--secondary-bg); }
