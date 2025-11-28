@@ -40,6 +40,7 @@ ul { list-style: none; }
 .delay-100 { transition-delay: 0.1s; }
 .delay-300 { transition-delay: 0.3s; }
 .delay-500 { transition-delay: 0.5s; }
+.delay-800 { transition-delay: 0.8s; }
 
 /* ==========================================================================
    2. GLOBAL UI COMPONENTS (Cursor & Buttons)
@@ -163,7 +164,11 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     margin-bottom: 2rem;
 }
 .hero-subtitle {
-    text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.875rem; margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 1.25rem; 
+    font-weight: 700;   
+    margin-bottom: 0.5rem;
 }
 
 /* Line Reveal Animation (Index Only) */
