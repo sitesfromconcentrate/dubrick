@@ -421,17 +421,39 @@ footer {
    ========================================================================== */
 
 /* --- Portfolio Grid Layout --- */
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 4rem 2rem; padding: 0 3rem 6rem; }
+.portfolio-grid { 
+    position: relative; 
+    z-index: 2; 
+    background-color: var(--primary-bg); /* Ensures hero doesn't bleed through */
+    display: grid; 
+    /* Force 4 columns on large screens */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 2rem; 
+    padding: 4rem 3rem 6rem; /* Added top padding to separate from hero */
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+}
+
 .prop-card { display: block; color: var(--text-main); }
 .prop-image-wrapper { position: relative; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 1.5rem; }
 .prop-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
 .prop-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.1); transition: opacity 0.3s; }
 .prop-card:hover .prop-img { transform: scale(1.05); }
 .prop-meta { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem; }
-.prop-title { font-size: 1.5rem; font-weight: 500; }
-.prop-type { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; }
-.prop-loc { margin-top: 0.5rem; font-size: 1rem; color: #666; }
-@media (max-width: 768px) { .portfolio-grid { grid-template-columns: 1fr; padding: 0 1.5rem 6rem; } }
+.prop-title { font-size: 1.25rem; font-weight: 500; } /* Adjusted size for 4-col layout */
+.prop-type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; }
+.prop-loc { margin-top: 0.5rem; font-size: 0.9rem; color: #666; }
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1400px) { 
+    .portfolio-grid { grid-template-columns: repeat(3, 1fr); } 
+}
+@media (max-width: 900px) { 
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+@media (max-width: 600px) { 
+    .portfolio-grid { grid-template-columns: 1fr; padding: 4rem 1.5rem 6rem; } 
+}
 
 /* --- Two-Column Details (Property & Service Pages) --- */
 .prop-detail-grid {
