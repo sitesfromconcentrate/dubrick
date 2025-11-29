@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- Core Pages -->
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/index.html</loc>
+      <priority>1.0</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/services.html</loc>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/portfolio.html</loc>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/contact.html</loc>
+      <priority>0.8</priority>
+   </url>
+
+   <!-- Dynamic Property Pages 
+        Important: List every property you have in data.js here -->
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/property.html?id=highland-plaza</loc>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/property.html?id=the-frederick</loc>
+      <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://www.dubrickpropertymanagement.com/property.html?id=iron-horse</loc>
+      <priority>0.6</priority>
+   </url>
+   <!-- Add the rest of your IDs from data.js here... -->
+</urlset>
