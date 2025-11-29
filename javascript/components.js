@@ -55,14 +55,16 @@ export function loadMobileMenu() {
 
 function setActiveLink() {
     const path = window.location.pathname;
-    const page = path.split("/").pop() || "index.html"; // Default to index if root
+    const page = path.split("/").pop() || "index.html"; 
     
-    // Selects only desktop links (.nav-link), leaving mobile links (.mobile-link) alone
     document.querySelectorAll('.nav-link').forEach(link => {
-        // Check if the link href matches the current page
+        // Clear previous active states if any
+        link.classList.remove('active-page'); 
         if(link.getAttribute('href') === page) {
-            // Hide the active link
-            link.style.display = "none";
+            // Add a class to style via CSS instead
+            link.classList.add('active-page');
+            // Optional: Accessibility attribute
+            link.setAttribute('aria-current', 'page');
         }
     });
 }

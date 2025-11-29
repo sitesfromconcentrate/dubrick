@@ -109,7 +109,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .logo-img {
-    height: 4rem; width: auto;
+    height: 3.5rem; width: auto;
     transition: filter 0.4s;
 }
 .nav-links { display: flex; gap: 3rem; }
@@ -121,7 +121,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     background: currentColor; transition: width 0.3s; margin-top: 4px;
 }
 .nav-link:hover::after { width: 100%; }
-
+.nav-link.active-page::after { width: 100%; } /* keep underline persistent */
 /* Scrolled State */
 .nav.scrolled {
     background-color: rgba(244, 241, 234, 0.85); backdrop-filter: blur(10px);
@@ -413,8 +413,12 @@ footer {
 
 /* --- Two-Column Details (Property & Service Pages) --- */
 .prop-detail-grid {
-    display: grid; grid-template-columns: 2fr 1fr; gap: 6rem;
-    padding: 6rem 3rem; max-width: 1400px; margin: 0 auto;
+    display: grid; 
+    grid-template-columns: 2fr 1fr; 
+    gap: 3rem;
+    padding: 3rem; 
+    max-width: var(--site-max-width); /* Changed from 1400px to 1600px */
+    margin: 0 auto;
     border-bottom: 1px solid #e5e5e5;
 }
 
@@ -424,16 +428,16 @@ footer {
 .prop-content-footer { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 /* Service Lists */
-.service-detail-block { margin-bottom: 4rem; }
+.service-detail-block { margin-bottom: 2rem; }
 .service-detail-block h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; font-family: var(--font-display); }
-.service-body { font-size: 1.125rem; line-height: 1.6; color: #4a4a4a; margin-bottom: 1.5rem; max-width: 65ch; }
+.service-body { font-size: 1.125rem; line-height: 1.6; color: #4a4a4a; margin-bottom: 1rem; max-width: 65ch; }
 .detail-list { list-style: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; }
 .detail-list li { padding-left: 0.5rem; }
 .detail-list-simple { list-style: none; line-height: 2; }
 .detail-list-simple strong { font-weight: 600; color: var(--text-main); }
 
 /* Right Column: Stats Box */
-.prop-stats-box { background-color: #f9fafb; padding: 2rem; color: #1a1a1a; }
+.prop-stats-box { background-color: #f9fafb; padding: 2rem; margin-bottom: 2rem; color: #1a1a1a; }
 .prop-stats-header {
     font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em;
     margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1);
