@@ -4,9 +4,7 @@ import { initUI } from './javascript/ui.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Inject Components
-    // Check if we are on portfolio page for dark mode nav
-    const isPortfolio = window.location.pathname.includes('portfolio.html');
-    loadHeader(isPortfolio); 
+    loadHeader(false);
     loadMobileMenu();
     loadFooter();
     // 2. Initialize UI (Cursor, Menu, Scroll)
