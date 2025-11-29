@@ -13,25 +13,21 @@
     <!-- Cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-ring"></div>
-    
-    <!-- Navigation (Injected by JS) -->
+    <!-- Navigation (Injected) -->
     <nav class="nav"></nav>
-    
-    <!-- Mobile Menu (Injected by JS) -->
+    <!-- Mobile Menu (Injected) -->
     <div id="mobile-menu"></div>
-    
     <!-- Hero Section -->
-    <header class="prop-hero">
+    <header class="hero-standard">
         <div class="hero-bg">
-            <img id="dynamic-image" src="" alt="" class="parallax-img" data-speed="0.2">
+            <img id="dynamic-image" src="" alt="" class="parallax-img" data-speed="0.1">
             <div class="hero-overlay"></div>
         </div>
-        <div class="hero-content text-left w-full">
-            <p id="dynamic-subtitle" class="hero-subtitle reveal-text">Loading...</p>
+        <div class="hero-standard-content container">
+            <p id="dynamic-subtitle" class="hero-subtitle reveal-text" style="text-align: left; margin-bottom: 0.5rem; opacity: 0.8;">Loading...</p>
             <h1 id="dynamic-title" class="hero-title display-font reveal-text delay-100">Loading...</h1>
         </div>
     </header>
-    
     <!-- Content Section -->
     <section class="prop-detail-grid">
         <!-- Left Column -->
@@ -46,7 +42,7 @@
         <div class="prop-stats-box reveal-text delay-300">
             <h3 class="prop-stats-header">Property Stats</h3>
             <div id="dynamic-stats">
-                <!-- Stats injected here by JS -->
+                <!-- Injected Here -->
             </div>
             <div class="prop-location-group">
                 <p class="prop-location-label">Location</p>
@@ -54,10 +50,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Footer (Injected by JS) -->
+    <!-- Footer (Injected) -->
     <footer></footer>
-
     <!-- Main Module -->
     <script type="module" src="script.js"></script>
 </body>

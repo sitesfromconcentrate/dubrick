@@ -26,7 +26,6 @@ body { font-family: var(--font-main); overflow-x: hidden; }
 @media (max-width: 768px) { .container { padding: 0 1.5rem; } }
 
 /* --- Global Typography Utilities --- */
-
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 .display-font { font-family: var(--font-display); }
@@ -34,7 +33,6 @@ ul { list-style: none; }
 .font-serif { font-family: serif; }
 
 /* --- Global Animations (Reveal & Parallax) --- */
-
 .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-text.visible { opacity: 1; transform: translateY(0); }
 .delay-100 { transition-delay: 0.1s; }
@@ -55,7 +53,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 @media (max-width: 768px) { #cursor-dot, #cursor-ring { display: none; } body { cursor: auto; } }
 
 /* --- Buttons --- */
-/* --- Base Button Structure --- */
 .btn-ticket {
     display: inline-block; 
     background: transparent;
@@ -69,7 +66,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     border: 1px solid; 
     transition: color 0.3s, border-color 0.3s;
 }
-/* The Slide-in Background Effect */
+/* Slide-in Background Effect */
 .btn-ticket::before {
     content: ''; 
     position: absolute; 
@@ -131,7 +128,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     color: var(--text-main); border-bottom: 1px solid rgba(26, 26, 26, 0.1);
 }
 .nav.scrolled .logo-img { filter: none; }
-
 /* Dark Mode For specific pages (if needed) */
 .nav.nav-dark-mode { mix-blend-mode: normal; color: var(--text-main); }
 .nav.nav-dark-mode .logo-img { filter: none; }
@@ -158,7 +154,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
    ========================================================================== */
 
 /* --- Base Logic --- */
-.hero, .prop-hero, .hero-standard {
+.hero, .hero-standard {
     position: relative; width: 100%; overflow: hidden; display: flex;
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
@@ -220,15 +216,12 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     .hide-mobile { display: none; }
 }
 
-/* --- B. Standardized Sub-Page Hero (Services, Portfolio, Contact) --- */
-/* Designed to be compact but consistent with container width */
-
+/* --- Standardized Sub-Page Hero --- */
 .hero-standard {
     height: 45vh; /* Much smaller than landing page */
     min-height: 420px;
     align-items: center; /* Vertically center content */
 }
-
 /* Typography for standard header */
 .hero-standard .hero-title {
     /* Slightly smaller than landing page, clean and bold */
@@ -239,12 +232,10 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     align-items: flex-start;
     color: var(--text-light);
 }
-
 /* Ensure parallax works well in shorter container */
 .hero-standard .parallax-img {
     height: 120%; top: -10%;
 }
-
 /* The content wrapper inside .hero-standard */
 .hero-standard-content {
     position: relative;
@@ -252,31 +243,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     width: 100%;
     /* Padding is handled by the global .container class in HTML */
 }
-
-
-/* --- C. Single Property Hero (.prop-hero) --- */
-/* Taller image for specific property details */
-.prop-hero { 
-    height: 80vh; 
-    align-items: flex-end; /* Text at bottom */
-    padding-bottom: 4rem;
-}
-.prop-hero .hero-content {
-    /* Uses container logic internally via padding on .prop-hero in media queries or layout */
-    position: relative; z-index: 10; color: var(--text-light); width: 100%;
-    padding: 0 3rem; /* Matches container padding manually or use container class */
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-}
-.prop-hero .hero-title {
-    font-size: clamp(3rem, 6vw, 6rem);
-    text-align: left; align-items: flex-start;
-}
-@media (max-width: 768px) {
-    .prop-hero { padding: 0 1.5rem 3rem; }
-    .prop-hero .hero-content { padding: 0; }
-}
-
 
 /* ==========================================================================
    5. INTRO SECTION ("Who We Are")
@@ -286,7 +252,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .section-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; padding-top: 1rem; }
 .about-line { border-top: 1px solid var(--text-main); width: 0; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s; }
 .reveal-text.visible .about-line { width: 100%; }
-
 .intro-text p { 
     font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.8rem); 
     font-weight: 300; line-height: 1.3; 
@@ -313,7 +278,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     font-size: clamp(3rem, 5vw + 1rem, 5rem); 
     font-weight: 700; line-height: 1; letter-spacing: -0.05em; 
 }
-
 .services-section {
     padding: 0; width: 100%;
     background: linear-gradient(to bottom, var(--secondary-bg) 0%, var(--primary-bg) 100%);
@@ -338,7 +302,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .service-card:hover .service-img { transform: scale(1.1); }
 .service-card:hover .service-overlay { opacity: 0.6; }
 .service-card:hover .service-info { transform: translateY(0); }
-
 .service-tag { 
     display: inline-block; background: var(--text-main); color: #fff;
     font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
@@ -355,7 +318,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     .services-section { padding: 0; }
 }
 
-
 /* ==========================================================================
    7. CONTACT SECTION (Bottom of Index)
    ========================================================================== */
@@ -366,7 +328,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 .contact-section .section-title, .contact-section a { color: var(--text-light); }
 .contact-section .info-label { color: rgba(244, 241, 234, 0.6); }
-
 /* Inverted Contact Section (Light Theme) */
 .contact-section.theme-light {
     background-color: var(--primary-bg); color: var(--text-main);
@@ -374,7 +335,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .contact-section.theme-light .section-title,
 .contact-section.theme-light a { color: var(--text-main); }
 .contact-section.theme-light .info-label { color: rgba(26, 26, 26, 0.6); }
-
 .contact-grid {
     display: grid; grid-template-columns: 1fr 1fr 1fr; 
     align-items: center; gap: 2rem;
@@ -382,7 +342,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .contact-item-title { text-align: left; }
 .contact-item-btn { display: flex; justify-content: center; align-items: center; }
 .contact-item-address { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
-
 .info-label {
     font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; 
     margin-bottom: 0.5rem;
@@ -394,7 +353,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     .contact-item-btn { justify-content: flex-start; }
     .contact-item-address { align-items: flex-start; text-align: left; }
 }
-
 
 /* ==========================================================================
    8. FOOTER
@@ -415,7 +373,6 @@ footer {
     .footer-bottom { justify-content: flex-end; }
 }
 
-
 /* ==========================================================================
    9. SUB-PAGE LAYOUTS (Portfolio, Services, Properties)
    ========================================================================== */
@@ -433,7 +390,6 @@ footer {
     max-width: var(--site-max-width);
     margin: 0 auto;
 }
-
 .prop-card { display: block; color: var(--text-main); }
 .prop-image-wrapper { position: relative; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 1.5rem; }
 .prop-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }

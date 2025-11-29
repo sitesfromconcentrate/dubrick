@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadMobileMenu();
     loadFooter();
     // 2. Initialize Page Specific Content
-    // We run this BEFORE animations so the observer sees the new DOM elements
     if (window.location.pathname.includes('property.html')) {
         loadPropertyPage();
     }
-
     if (window.location.pathname.includes('portfolio.html')) {
         loadPortfolioGrid();
     }
