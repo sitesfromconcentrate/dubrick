@@ -295,17 +295,24 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 
 footer { 
     background: var(--secondary-bg); color: var(--text-light);
-    padding: 0 3rem; 
+    width: 100%;
+    /* Note: Padding removed from here to allow background to be full width */
 }
 .footer-bottom {
-    border-top: 1px solid rgba(0,0,0,0.1); 
-    padding: 1.5rem 0;
+    /* Apply container-like logic to the inner content */
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 1.5rem 3rem; /* Top/Bot 1.5rem, Left/Right 3rem to match site container */
+    
+    border-top: 1px solid rgba(255,255,255,0.1); /* Subtle white line on charcoal */
     display: flex; justify-content: flex-end;
     font-size: 0.7rem; letter-spacing: 0.1em; 
 }
 @media (max-width: 768px) {
-    footer { padding: 0 1.5rem; }
-    .footer-bottom { justify-content: flex-end; }
+    .footer-bottom { 
+        justify-content: flex-end; 
+        padding: 1.5rem 1.5rem; /* Match mobile container padding */
+    }
 }
 
 /* ==========================================================================
@@ -435,4 +442,51 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 
 @media (max-width: 768px) {
     .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+/* ==========================================================================
+   11. UNIFIED LANDING SECTION (Expertise -> Services -> Contact)
+   ========================================================================== */
+
+/* The wrapper that holds the continuous background gradient */
+.unified-bottom-wrapper {
+    background: linear-gradient(to bottom, 
+        var(--secondary-bg) 0%,     /* Starts Black */
+        var(--secondary-bg) 15%,    /* Stays Black for the "Expertise" header */
+        var(--primary-bg) 100%      /* Fades to Cream for "Contact" */
+    );
+    width: 100%;
+}
+
+/* Make inner sections transparent so wrapper gradient shows */
+.unified-bottom-wrapper .section-header-wrapper,
+.unified-bottom-wrapper .services-section,
+.unified-bottom-wrapper .contact-section {
+    background: transparent !important; 
+    border: none; /* Removes any borders causing lines */
+}
+
+/* Force "Expertise" Header text to be White (since it sits on the dark part of gradient) */
+.unified-bottom-wrapper .section-header-wrapper .section-title {
+    color: var(--text-light);
+}
+
+/* Force "Contact" text to be Black (since it sits on the light part of gradient) */
+.unified-bottom-wrapper .contact-section .section-title,
+.unified-bottom-wrapper .contact-section a,
+.unified-bottom-wrapper .contact-section .info-address {
+    color: var(--text-main);
+}
+.unified-bottom-wrapper .contact-section .info-label {
+    color: rgba(26, 26, 26, 0.6);
+}
+
+/* Ensure the button in Contact section is the Dark variant (for light background) */
+.unified-bottom-wrapper .contact-section .btn-ticket {
+    border-color: var(--text-main);
+    color: var(--text-main);
+}
+.unified-bottom-wrapper .contact-section .btn-ticket:hover {
+    color: var(--text-light) !important;
+    border-color: var(--text-light) !important;
 }
