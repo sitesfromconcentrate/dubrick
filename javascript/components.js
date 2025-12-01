@@ -1,6 +1,5 @@
 export function loadHeader(isDarkMode = false) {
     const navClass = isDarkMode ? 'nav nav-dark-mode' : 'nav';
-    
     const html = `
     <div class="navbar container">
         <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logo.png" alt="Dubrick Property Management" class="logo-img"></a>
@@ -16,10 +15,9 @@ export function loadHeader(isDarkMode = false) {
             </svg>
         </button>
     </div>`;
-
     const navElement = document.querySelector('nav');
     if(navElement) {
-        navElement.className = navClass; // Set class based on page type
+        navElement.className = navClass; // set class based on page type
         navElement.innerHTML = html;
         setActiveLink();
     }
@@ -56,7 +54,6 @@ export function loadMobileMenu() {
 function setActiveLink() {
     const path = window.location.pathname;
     const page = path.split("/").pop() || "index.html"; 
-    
     document.querySelectorAll('.nav-link').forEach(link => {
         // Clear previous active states if any
         link.classList.remove('active-page'); 

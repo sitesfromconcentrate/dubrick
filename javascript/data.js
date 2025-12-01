@@ -104,3 +104,5 @@ export const propertyData = {
         ]
     }
 };
+
+// don't forget to update sitemap with any newly-added properties
