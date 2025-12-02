@@ -24,9 +24,8 @@ html { scroll-behavior: smooth; background-color: var(--primary-bg); color: var(
 body { font-family: var(--font-main); overflow-x: hidden; }
 .container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 3rem; }
 
-/* UPDATED: Mobile Container Padding (Portrait OR Landscape Touch) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) { 
+/* UPDATED: Container Padding for smaller devices */
+@media screen and (max-width: 1024px) { 
     .container { padding: 0 1.5rem; } 
 }
 
@@ -56,10 +55,10 @@ body.custom-cursor-active, body.custom-cursor-active * { cursor: none !important
 body.hovering #cursor-dot { transform: translate(-50%, -50%) scale(0); }
 body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #ffffff; border-width: 0; }
 
-/* Hide custom cursor on any touch device */
-@media (pointer: coarse), (max-width: 768px) { 
-    #cursor-dot, #cursor-ring { display: none; } 
-    body { cursor: auto; } 
+/* UPDATED: Hide custom cursor on any touch device or tablet */
+@media (pointer: coarse), (max-width: 1024px) { 
+    #cursor-dot, #cursor-ring { display: none !important; } 
+    body { cursor: auto !important; } 
 }
 
 /* --- Buttons --- */
@@ -131,9 +130,9 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 #close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
 .mobile-link { font-size: 2rem; text-transform: uppercase; }
 
-/* UPDATED: Nav Breakpoint (Includes Landscape Mobile) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+/* UPDATED: Nav Breakpoint (Includes Tablets & Landscape Mobile) */
+/* Changed to 1024px to catch iPad Portrait and similar tablets */
+@media screen and (max-width: 1024px), (pointer: coarse) {
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
 }
@@ -198,9 +197,8 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     60% { transform: translateY(-5px); }
 }
 
-/* UPDATED: Hero Footer Mobile (Includes Landscape Mobile) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+/* UPDATED: Hero Footer Mobile */
+@media screen and (max-width: 1024px) {
     .hero-footer { display: flex; justify-content: center; }
     .hide-mobile { display: none; }
 }
@@ -242,9 +240,8 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .reveal-text.visible .about-line { width: 100%; }
 .intro-text p { font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.8rem); font-weight: 300; line-height: 1.3; }
 
-/* UPDATED: Intro Mobile (Includes Landscape Mobile) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+/* UPDATED: Intro Mobile */
+@media screen and (max-width: 1024px) {
     .intro { padding: 4rem 1.5rem; }
     .intro-grid { grid-template-columns: 1fr; }
 }
@@ -261,8 +258,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .service-container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 3rem; }
 
 /* UPDATED: Service Container Mobile */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) { 
+@media screen and (max-width: 1024px) { 
     .service-container { padding: 0; } 
 }
 
@@ -280,9 +276,8 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .service-title { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
 .service-desc { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; }
 
-/* UPDATED: Service Grid Mobile (Includes Landscape Mobile) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+/* UPDATED: Service Grid Mobile */
+@media screen and (max-width: 1024px) {
     .services-grid { grid-template-columns: 1fr; }
     .service-card { max-height: 45rem; }
     .services-section { padding: 0; }
@@ -313,9 +308,8 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 .info-address { font-size: 1.125rem; line-height: 1.4; font-weight: 500; }
 
-/* UPDATED: Contact Grid Mobile (Includes Landscape Mobile) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+/* UPDATED: Contact Grid Mobile */
+@media screen and (max-width: 1024px) {
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .contact-item-btn { justify-content: flex-start; }
     .contact-item-address { align-items: flex-start; text-align: left; }
@@ -342,8 +336,7 @@ footer {
 }
 
 /* UPDATED: Footer Mobile */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     .footer-bottom { 
         justify-content: flex-end; 
         padding: 1.5rem 1.5rem; /* Match mobile container padding */
@@ -415,9 +408,8 @@ footer {
     height: 100%;
 }
 
-/* UPDATED: Contact Page Layout Breakpoint (Includes Landscape Mobile) */
-@media screen and (max-width: 900px),
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) { 
+/* UPDATED: Contact Page Layout Breakpoint */
+@media screen and (max-width: 1024px) { 
     .contact-page-layout { grid-template-columns: 1fr; gap: 3rem; } 
     .prop-detail-grid { grid-template-columns: 1fr; gap: 3rem; }
 }
@@ -497,9 +489,8 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 /* Placeholder Styling */
 .form-input::placeholder { color: #999; font-weight: 300; }
 
-/* UPDATED: Form Row Mobile (Includes Landscape Mobile) */
-@media screen and (max-width: 768px), 
-       screen and (orientation: landscape) and (pointer: coarse) and (max-width: 1000px) {
+/* UPDATED: Form Row Mobile */
+@media screen and (max-width: 1024px) {
     .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
@@ -551,32 +542,36 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 }
 
 /* ==========================================================================
-   12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS (NEW)
+   12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS (NEW & IMPROVED)
    ========================================================================== */
 
 /* Target devices that are in landscape AND have a short vertical height (Phones) */
 @media screen and (orientation: landscape) and (max-height: 500px) {
     
-    /* 1. Un-constrain the Hero Height and Force Column Direction */
+    /* 1. Un-constrain the Hero Height and Force Center Alignment */
     .hero {
         height: auto;       
         min-height: 100vh;  
         padding-top: 6rem;  
         padding-bottom: 2rem;
-        flex-direction: column;   /* Force stacking */
-        align-items: flex-start;  /* Align block to left */
+        flex-direction: column;   
+        align-items: center;  /* CHANGED: Center horizontal */
+        text-align: center;   /* CHANGED: Center text */
     }
 
-    /* 2. Ensure title aligns left within its block */
+    /* 2. Hero Content & Titles */
+    .hero-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers items in stack */
+    }
+
     .hero-title {
-        align-items: flex-start;
+        align-items: center; /* CHANGED: Center the "DUBRICK" word stack */
         margin-bottom: 1rem;
     }
     
-    .hero-content {
-        width: 100%; /* Ensure content takes full width */
-    }
-
     /* 3. Scale down the giant reveal text */
     .hero-line-1 { font-size: 4rem; }
     .hero-line-2 { font-size: 3.2rem; }
@@ -584,18 +579,17 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
     
     /* 4. Subtitle adjustments */
     .hero-subtitle {
-        text-align: left;
+        text-align: center; /* CHANGED */
     }
 
     /* 5. Fix the footer button layout */
     .hero-footer {
         position: relative; 
-        margin-top: 1rem;
+        margin-top: 2rem;
         bottom: auto;
         
-        /* Reset Grid to Flex so we can stack or align left */
         display: flex;
-        justify-content: flex-start;
+        justify-content: center; /* CHANGED: Center the button */
         width: 100%;
     }
     
@@ -605,6 +599,14 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         min-height: 300px;
         padding-top: 6rem;
         padding-bottom: 3rem;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-standard .hero-title {
+        align-items: center;
+        text-align: center;
+        width: 100%;
     }
     
     /* 7. Reduce padding on sections */
@@ -613,5 +615,19 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
     .contact-section {
         padding-top: 2rem;
         padding-bottom: 2rem;
+    }
+    
+    /* 8. Service Cards: Make Wide (Banners) instead of Tall to save scroll space */
+    .service-card {
+        aspect-ratio: 16/9; /* Widescreen ratio */
+        max-height: 300px;
+    }
+    
+    .service-info {
+        text-align: center; /* Center text inside cards */
+    }
+    
+    .prop-image-wrapper {
+        aspect-ratio: 2/1; /* Widescreen portfolio thumbs */
     }
 }
