@@ -578,9 +578,7 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
     .hero-line-3 { font-size: 2.2rem; }
     
     /* 4. Subtitle adjustments */
-    .hero-subtitle {
-        text-align: center; /* CHANGED */
-    }
+    .hero-subtitle { text-align: center; font-size: 1rem; }
 
     /* 5. Fix the footer button layout */
     .hero-footer {
@@ -617,10 +615,17 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         padding-bottom: 2rem;
     }
     
-    /* 8. Service Cards: Make Wide (Banners) instead of Tall to save scroll space */
+    /* Center the grid items so they don't stick to the left */
+    .services-grid {
+        justify-items: center;
+    }
+
+    /* 8. Service Cards: Make Wide (Banners) instead of Tall */
     .service-card {
-        aspect-ratio: 16/9; /* Widescreen ratio */
+        aspect-ratio: 16/9; 
         max-height: 300px;
+        width: 100%; /* Ensures it takes available space up to the ratio limit */
+        max-width: 600px; /* Optional: prevents it from getting too huge on larger phones */
     }
     
     .service-info {
