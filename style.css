@@ -67,49 +67,90 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     body { cursor: auto !important; } 
 }
 
-/* --- Buttons --- */
-.btn-ticket {
-    display: inline-block; 
-    background: transparent;
-    padding: 0.75rem 2rem; 
-    font-size: 0.875rem; 
-    text-transform: uppercase; 
+/* ==========================================================================
+   BUTTONS (Refactored)
+   ========================================================================== */
+
+/* 1. Base Structure & Animation Logic */
+.btn {
+    /* -- Default Theme (Dark on Light) -- */
+    --btn-text: var(--text-main);       /* #1A1A1A */
+    --btn-border: var(--text-main);     /* #1A1A1A */
+    --btn-fill: var(--text-main);       /* Slide color */
+    --btn-text-hover: var(--text-light);/* #F4F1EA */
+
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between text and arrows */
+    
+    /* Typography */
+    font-family: var(--font-main);
+    font-size: 0.875rem;
+    text-transform: uppercase;
     letter-spacing: 0.1em;
-    position: relative; 
-    overflow: hidden; 
+    text-decoration: none;
+    line-height: 1;
+
+    /* Box Model */
+    padding: 1rem 2rem; /* Increased vertical padding slightly for touch targets */
+    background: transparent;
+    border: 1px solid var(--btn-border);
+    color: var(--btn-text);
     cursor: pointer;
-    border: 1px solid; 
-    transition: color 0.3s, border-color 0.3s;
+    
+    /* Animation Setup */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    z-index: 1;
+    
+    /* Reset for <button> elements */
+    appearance: none;
+    border-radius: 0;
 }
-/* Slide-in Background Effect */
-.btn-ticket::before {
-    content: ''; 
-    position: absolute; 
-    top: 0; left: -100%; 
-    width: 100%; height: 100%;
-    background: var(--secondary-bg); /* Fills with Black */
-    transition: left 0.3s ease; 
+
+/* 2. The Slide Fill Effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--btn-fill);
     z-index: -1;
+    
+    /* Performance: Use transform instead of left/top */
+    transform: translateX(-101%); 
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.btn-ticket:hover::before { left: 0; }
-/* --- Button Variant: Dark (For use on Light Backgrounds) --- */
-.btn-dark { 
-    border-color: var(--text-main); /* Starts Black */
-    color: var(--text-main);        /* Starts Black */
+
+/* 3. Hover State */
+.btn:hover {
+    color: var(--btn-text-hover) !important;
+    border-color: var(--btn-fill) !important; /* Border matches fill on hover */
 }
-.btn-dark:hover { 
-    color: var(--text-light) !important; 
-    border-color: var(--text-light) !important; 
+
+.btn:hover::before {
+    transform: translateX(0);
 }
-/* --- Button Variant: White (For use on Dark Backgrounds) --- */
-.btn-white { 
-    border-color: white; 
-    color: white; 
+
+/* 4. Variants (Just variable swaps!) */
+
+/* Use on Dark Backgrounds (White Border -> White Fill -> Black Text) */
+.btn-inverse {
+    --btn-text: var(--text-light);
+    --btn-border: var(--text-light);
+    --btn-fill: var(--text-light);   /* Fills with White */
+    --btn-text-hover: var(--text-main); /* Text turns Black */
 }
-.btn-white:hover { 
-    color: white !important;
-    background-color: rgba(255,255,255,0.1); 
-    border-color: white !important;
+
+/* 5. Accessibility Focus */
+.btn:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 4px;
 }
 
 /* ==========================================================================
