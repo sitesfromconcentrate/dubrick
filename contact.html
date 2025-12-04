@@ -27,42 +27,36 @@
             <h1 class="hero-title display-font reveal-text delay-100">Contact<br>Us</h1>
         </div>
     </header>
-
-    <!-- Contact Grid: Changed class to 'contact-page-layout' -->
+    <!-- Contact Grid -->
     <section class="contact-page-layout">
-        
-        <!-- Left Column (1/3): Info & Hours (Moved here and styled as a box) -->
+        <!-- Left Column (1/3): Info & Hours -->
         <div class="prop-stats-box reveal-text delay-300">
             <h3 class="prop-stats-header">Contact Details</h3>
-            
             <!-- Head Office -->
-            <div class="service-detail-block" style="margin-top: 1.5rem;">
-                <h4 class="display-font" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Head Office</h4>
-                <p class="service-body text-body-lg" style="margin-bottom: 1rem;">584 Frederick Street<br>Kitchener, ON N2B 2A9</p>
-                <a href="tel:5195786077" class="btn-ticket btn-dark hover-trigger" style="width: 100%; text-align: center;">(519) 578-6077</a>
+            <div class="service-detail-block contact-detail-group">
+                <h4 class="display-font contact-subhead">Head Office</h4>
+                <p class="service-body text-body-lg contact-address-text">584 Frederick Street<br>Kitchener, ON N2B 2A9</p>
+                <a href="tel:5195786077" class="btn-ticket btn-dark hover-trigger contact-phone-btn">(519) 578-6077</a>
             </div>
-
             <!-- Office Hours -->
-            <div class="service-detail-block" style="margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1.5rem;">
-                <h4 class="display-font" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Office Hours</h4>
+            <div class="service-detail-block contact-detail-group bordered">
+                <h4 class="display-font contact-subhead">Office Hours</h4>
                 <ul class="detail-list-simple">
                     <li><strong>Mon–Thu:</strong> 8:30 a.m. – 4:30 p.m.</li>
                     <li><strong>Friday:</strong> 8:30 a.m. – 1:00 p.m.</li>
                 </ul>
-                <p class="text-small-mute" style="margin-top: 1rem; opacity: 0.6; font-size: 0.85em; line-height: 1.4;">
+                <p class="text-small-mute contact-emergency-note">
                     <em>24/7 Emergency Service Available for Managed Tenants</em>
                 </p>
             </div>
         </div>
-
         <!-- Right Column (2/3): Wider Form -->
         <div class="prop-overview reveal-text delay-500">
             <h2 class="display-font" style="margin-bottom: 1.5rem;">Send a Message</h2>
-            <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.8;">Please fill out the form below and our team will be in touch shortly.</p>
-            
+            <!-- Replaced style with class -->
+            <p class="contact-form-intro">Please fill out the form below and our team will be in touch shortly.</p>
             <form class="contact-form" action="#" method="POST">
-                
-                <!-- Row: Name and Email Side-by-Side -->
+                <!-- Inputs (Unchanged) -->
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name" class="sr-only">Name</label>
@@ -73,7 +67,6 @@
                         <input type="email" id="email" class="form-input hover-trigger" placeholder="Email Address" required>
                     </div>
                 </div>
-
                 <!-- Full Width: Subject -->
                 <div class="form-group">
                     <label for="subject" class="sr-only">Subject</label>
@@ -85,22 +78,18 @@
                         <option value="other">General Inquiry</option>
                     </select>
                 </div>
-
                 <!-- Full Width: Message -->
                 <div class="form-group">
                     <label for="message" class="sr-only">Message</label>
                     <textarea id="message" class="form-input hover-trigger" rows="5" placeholder="How can we help?" required></textarea>
                 </div>
-
                 <!-- Submit Button -->
-                <div style="text-align: right;">
-                    <button type="submit" class="btn-ticket btn-dark hover-trigger" style="min-width: 200px;">Submit Inquiry</button>
+                <div class="form-actions">
+                    <button type="submit" class="btn-ticket btn-dark hover-trigger form-submit-btn">Submit Inquiry</button>
                 </div>
             </form>
         </div>
-
     </section>
-
     <!-- Footer (Injected) -->
     <footer></footer>
     <!-- Main Module -->

@@ -18,7 +18,9 @@
     --site-max-width: 1600px;
     --site-edge: 3rem; 
 }
-@media screen and (max-width: 1024px) { :root { --site-edge: 1.5rem; } }
+@media screen and (max-width: 1024px) {
+    :root { --site-edge: 1.5rem; } 
+}
 
 /* --- Resets & Base --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -536,6 +538,65 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
     color: var(--text-light) !important;
     border-color: var(--text-light) !important;
 }
+
+/* ==========================================================================
+   13. REFACTORED INLINE STYLES
+   ========================================================================== */
+
+/* --- Contact Page Specifics --- */
+.contact-detail-group {
+    margin-top: 1.5rem;
+}
+.contact-detail-group.bordered {
+    margin-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 1.5rem;
+}
+.contact-subhead {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.contact-address-text {
+    margin-bottom: 1rem;
+}
+.contact-phone-btn {
+    width: 100%;
+    text-align: center;
+}
+.contact-emergency-note {
+    margin-top: 1rem;
+    opacity: 0.6;
+    font-size: 0.85em;
+    line-height: 1.4;
+}
+.contact-form-intro {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+.form-actions {
+    text-align: right;
+}
+.form-submit-btn {
+    min-width: 200px;
+}
+
+/* --- Services Page Sidebar --- */
+.sidebar-block {
+    margin-bottom: 2rem;
+}
+.sidebar-quote-text {
+    margin-bottom: 1.5rem; 
+    line-height: 1.6;
+}
+
+/* --- Property Page specific overrides --- */
+.hero-subtitle-prop {
+    text-align: left; 
+    margin-bottom: 0.5rem; 
+    opacity: 0.8;
+}
+
 
 /* ==========================================================================
    12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS
