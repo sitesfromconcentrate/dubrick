@@ -6,7 +6,7 @@ import { loadPortfolioGrid } from './javascript/portfolio.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Inject Static Components
-    loadHeader(false);
+    loadHeader();
     loadMobileMenu();
     loadFooter();
     // 2. Initialize Page Specific Content

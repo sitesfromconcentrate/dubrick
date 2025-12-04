@@ -1,5 +1,5 @@
-export function loadHeader(isDarkMode = false) {
-    const navClass = isDarkMode ? 'nav nav-dark-mode' : 'nav';
+export function loadHeader() {
+    const navClass = 'nav';
     const html = `
     <div class="navbar container">
         <a href="index.html" class="nav-logo hover-trigger"><img src="assets/images/logo/logo.png" alt="Dubrick Property Management" class="logo-img"></a>
@@ -17,7 +17,7 @@ export function loadHeader(isDarkMode = false) {
     </div>`;
     const navElement = document.querySelector('nav');
     if(navElement) {
-        navElement.className = navClass; // set class based on page type
+        navElement.className = navClass; 
         navElement.innerHTML = html;
         setActiveLink();
     }
