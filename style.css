@@ -697,81 +697,74 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
    12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS
    ========================================================================== */
 
-/* Target devices that are in landscape AND have a short vertical height (Phones) */
+/* Target devices in landscape with short height (Phones) */
 @media screen and (orientation: landscape) and (max-height: 500px) {
     
-    /* 1. Un-constrain the Hero Height and Force Center Alignment */
+    /* 1. Force the Hero to fit the screen exactly (No Scrolling) */
     .hero {
-        height: auto;       
-        min-height: 100vh;  
-        padding-top: 6rem;  
-        padding-bottom: 2rem;
+        height: 100svh;       
+        min-height: auto;  
+        padding: 0;  
         flex-direction: column;   
-        align-items: center;  /* Center horizontal */
-        text-align: center;   /* Center text */
+        align-items: center;
+        justify-content: center;
     }
-    /* 2. Hero Content & Titles */
+
+    /* 2. Adjust Content Wrapper */
     .hero-content {
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers items in stack */
+        align-items: center; 
+        /* Pull content up slightly to make room for the bottom button */
+        margin-bottom: 2rem; 
+        z-index: 10;
     }
+
     .hero-title {
-        align-items: center; /* Center the "DUBRICK" word stack */
-        margin-bottom: 1rem;
-    }
-    /* 3. Scale down the giant reveal text */
-    .hero-line-1 { font-size: 4rem; }
-    .hero-line-2 { font-size: 3.2rem; }
-    .hero-line-3 { font-size: 2.2rem; }
-    /* 4. Subtitle adjustments */
-    .hero-subtitle { text-align: center; font-size: 1rem; }
-    /* 5. Fix the footer button layout */
-    .hero-footer {
-        position: relative; 
-        margin-top: 2rem;
-        bottom: auto;
-        display: flex;
-        justify-content: center; /* Center the button */
-        width: 100%;
-    }
-    /* 6. Adjust Standard Hero (sub-pages) */
-    .hero-standard {
-        height: auto;
-        min-height: 300px;
-        padding-top: 6rem;
-        padding-bottom: var(--site-spacing);
-        justify-content: center;
-        text-align: center;
-    }
-    .hero-standard .hero-title {
         align-items: center;
-        text-align: center;
+        margin-bottom: 0.5rem;
+        line-height: 0.9; /* Tighten line height */
+    }
+
+    /* 3. Switch Font Units to VH (Viewport Height) 
+       This ensures text shrinks based on how short the screen is */
+    .hero-line-1 { font-size: 16vh; }
+    .hero-line-2 { font-size: 13vh; }
+    .hero-line-3 { font-size: 10vh; }
+
+    .hero-subtitle { 
+        text-align: center; 
+        font-size: 0.8rem; /* Smaller subtitle */
+        margin-top: 0.5rem;
+    }
+
+    /* 4. Position Footer/Button tight to bottom */
+    .hero-footer {
+        position: absolute; 
+        bottom: 1rem; /* Stick to bottom */
+        left: 0;
+        right: 0;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
         width: 100%;
     }
-    /* 7. Reduce padding on sections */
-    .intro-grid, 
-    .section-header-wrapper, 
-    .contact-section {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+
+    /* Make the button slightly smaller to save space */
+    .hero-footer .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.75rem;
     }
-    /* Center the grid items so they don't stick to the left */
-    .services-grid {
-        justify-items: center;
+
+    /* Hide extra footer elements in landscape to save clutter */
+    .hero-footer span {
+        display: none;
     }
-    /* 8. Service Cards: Make Wide (Banners) instead of Tall */
-    .service-card {
-        aspect-ratio: 16/9; 
-        max-height: 300px;
-        width: 100%; /* Ensures it takes available space up to the ratio limit */
-        max-width: 600px; /* Optional: prevents it from getting too huge on larger phones */
-    }
-    .service-info {
-        text-align: center; /* Center text inside cards */
-    }
-    .prop-image-wrapper {
-        aspect-ratio: 2/1; /* Widescreen portfolio thumbs */
+    
+    /* 5. Standard Hero Adjustment for Sub-pages in Landscape */
+    .hero-standard {
+        min-height: 100svh;
+        padding-top: 4rem;
     }
 }
