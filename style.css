@@ -16,18 +16,15 @@
     --font-main: 'Inter', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
     --site-max-width: 1600px;
+    --site-edge: 3rem; 
 }
+@media screen and (max-width: 1024px) { :root { --site-edge: 1.5rem; } }
 
 /* --- Resets & Base --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; background-color: var(--primary-bg); color: var(--text-main); }
 body { font-family: var(--font-main); overflow-x: hidden; }
-.container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 3rem; }
-
-/* UPDATED: Container Padding for smaller devices */
-@media screen and (max-width: 1024px) { 
-    .container { padding: 0 1.5rem; } 
-}
+.container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
 
 /* --- Global Typography Utilities --- */
 a { text-decoration: none; color: inherit; }
@@ -55,7 +52,7 @@ body.custom-cursor-active, body.custom-cursor-active * { cursor: none !important
 body.hovering #cursor-dot { transform: translate(-50%, -50%) scale(0); }
 body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #ffffff; border-width: 0; }
 
-/* UPDATED: Hide custom cursor on any touch device or tablet */
+/* Hide custom cursor on any touch device or tablet */
 @media (pointer: coarse), (max-width: 1024px) { 
     #cursor-dot, #cursor-ring { display: none !important; } 
     body { cursor: auto !important; } 
@@ -130,7 +127,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 #close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
 .mobile-link { font-size: 2rem; text-transform: uppercase; }
 
-/* UPDATED: Nav Breakpoint (Includes Tablets & Landscape Mobile) */
+/* Nav Breakpoint (Includes Tablets & Landscape Mobile) */
 /* Changed to 1024px to catch iPad Portrait and similar tablets */
 @media screen and (max-width: 1024px), (pointer: coarse) {
     .nav-links { display: none; }
@@ -197,7 +194,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     60% { transform: translateY(-5px); }
 }
 
-/* UPDATED: Hero Footer Mobile */
+/* Hero Footer Mobile */
 @media screen and (max-width: 1024px) {
     .hero-footer { display: flex; justify-content: center; }
     .hide-mobile { display: none; }
@@ -234,13 +231,13 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
    5. INTRO SECTION ("Who We Are")
    ========================================================================== */
 
-.intro-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; padding-top: 4rem; padding-bottom: 4rem;}
+.intro-grid { display: grid; grid-template-columns: 1fr 2fr; gap: var(--site-edge); padding-top: var(--site-edge); padding-bottom: var(--site-edge);}
 .section-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; padding-top: 1rem; }
 .about-line { border-top: 1px solid var(--text-main); width: 0; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s; }
 .reveal-text.visible .about-line { width: 100%; }
 .intro-text p { font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.8rem); font-weight: 300; line-height: 1.3; }
 
-/* UPDATED: Intro Mobile */
+/* Intro Mobile */
 @media screen and (max-width: 1024px) {
     .intro { padding: 4rem 1.5rem; }
     .intro-grid { grid-template-columns: 1fr; }
@@ -255,10 +252,13 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .section-header-wrapper.bg-charcoal .section-title { color: var(--text-light); }
 .section-title { font-size: clamp(3rem, 5vw + 1rem, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.05em; }
 .services-section { padding: 0; width: 100%; background: linear-gradient(to bottom, var(--secondary-bg) 0%, var(--primary-bg) 100%); }
-.service-container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 3rem; }
 
-/* UPDATED: Service Container Mobile */
+/* Uses dynamic variable for padding */
+.service-container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
+
+/* Service Container Mobile */
 @media screen and (max-width: 1024px) { 
+    /* Force 0 padding for services specifically to allow bleed if needed, otherwise use variable */
     .service-container { padding: 0; } 
 }
 
@@ -276,7 +276,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .service-title { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
 .service-desc { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; }
 
-/* UPDATED: Service Grid Mobile */
+/* Service Grid Mobile */
 @media screen and (max-width: 1024px) {
     .services-grid { grid-template-columns: 1fr; }
     .service-card { max-height: 45rem; }
@@ -308,7 +308,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 .info-address { font-size: 1.125rem; line-height: 1.4; font-weight: 500; }
 
-/* UPDATED: Contact Grid Mobile */
+/* Contact Grid Mobile */
 @media screen and (max-width: 1024px) {
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .contact-item-btn { justify-content: flex-start; }
@@ -325,21 +325,18 @@ footer {
     /* Note: Padding removed from here to allow background to be full width */
 }
 .footer-bottom {
-    /* Apply container-like logic to the inner content */
     max-width: var(--site-max-width);
     margin: 0 auto;
-    padding: 1.5rem 3rem; /* Top/Bot 1.5rem, Left/Right 3rem to match site container */
-    
+    padding: 1.5rem var(--site-edge); 
     border-top: 1px solid rgba(255,255,255,0.1); /* Subtle white line on charcoal */
     display: flex; justify-content: flex-end;
     font-size: 0.7rem; letter-spacing: 0.1em; 
 }
 
-/* UPDATED: Footer Mobile */
+/* Footer Mobile */
 @media screen and (max-width: 1024px) {
     .footer-bottom { 
         justify-content: flex-end; 
-        padding: 1.5rem 1.5rem; /* Match mobile container padding */
     }
 }
 
@@ -353,10 +350,9 @@ footer {
     z-index: 2; 
     background-color: var(--primary-bg); /* Ensures hero doesn't bleed through */
     display: grid; 
-    /* Force 4 columns on large screens */
     grid-template-columns: repeat(4, 1fr); 
-    gap: 2rem; 
-    padding: 4rem 3rem 6rem; /* Added top padding to separate from hero */
+    gap: var(--site-edge); 
+    padding: var(--site-edge); 
     max-width: var(--site-max-width);
     margin: 0 auto;
 }
@@ -378,16 +374,16 @@ footer {
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); } 
 }
 @media (max-width: 600px) { 
-    .portfolio-grid { grid-template-columns: 1fr; padding: 4rem 1.5rem 6rem; } 
+    .portfolio-grid { grid-template-columns: 1fr; } 
 }
 
 /* --- Two-Column Details (Property & Service Pages) --- */
 .prop-detail-grid {
     display: grid; 
     grid-template-columns: 2fr 1fr; 
-    gap: 3rem;
-    padding: 3rem; 
-    max-width: var(--site-max-width); /* Changed from 1400px to 1600px */
+    gap: var(--site-edge);
+    padding: var(--site-edge); 
+    max-width: var(--site-max-width);
     margin: 0 auto;
     border-bottom: 1px solid #e5e5e5;
 }
@@ -396,8 +392,8 @@ footer {
 .contact-page-layout {
     display: grid; 
     grid-template-columns: 1fr 2fr; /* 1fr Info, 2fr Form */
-    gap: 4rem;
-    padding: 4rem 3rem; 
+    gap: var(--site-edge);
+    padding: var(--site-edge); 
     max-width: var(--site-max-width); 
     margin: 0 auto;
 }
@@ -408,7 +404,7 @@ footer {
     height: 100%;
 }
 
-/* UPDATED: Contact Page Layout Breakpoint */
+/* Contact Page Layout Breakpoint */
 @media screen and (max-width: 1024px) { 
     .contact-page-layout { grid-template-columns: 1fr; gap: 3rem; } 
     .prop-detail-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -489,7 +485,7 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 /* Placeholder Styling */
 .form-input::placeholder { color: #999; font-weight: 300; }
 
-/* UPDATED: Form Row Mobile */
+/* Form Row Mobile */
 @media screen and (max-width: 1024px) {
     .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
 }
@@ -542,7 +538,7 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 }
 
 /* ==========================================================================
-   12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS (NEW & IMPROVED)
+   12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS
    ========================================================================== */
 
 /* Target devices that are in landscape AND have a short vertical height (Phones) */
@@ -555,10 +551,9 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         padding-top: 6rem;  
         padding-bottom: 2rem;
         flex-direction: column;   
-        align-items: center;  /* CHANGED: Center horizontal */
-        text-align: center;   /* CHANGED: Center text */
+        align-items: center;  /* Center horizontal */
+        text-align: center;   /* Center text */
     }
-
     /* 2. Hero Content & Titles */
     .hero-content {
         width: 100%;
@@ -566,31 +561,25 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         flex-direction: column;
         align-items: center; /* Centers items in stack */
     }
-
     .hero-title {
-        align-items: center; /* CHANGED: Center the "DUBRICK" word stack */
+        align-items: center; /* Center the "DUBRICK" word stack */
         margin-bottom: 1rem;
     }
-    
     /* 3. Scale down the giant reveal text */
     .hero-line-1 { font-size: 4rem; }
     .hero-line-2 { font-size: 3.2rem; }
     .hero-line-3 { font-size: 2.2rem; }
-    
     /* 4. Subtitle adjustments */
     .hero-subtitle { text-align: center; font-size: 1rem; }
-
     /* 5. Fix the footer button layout */
     .hero-footer {
         position: relative; 
         margin-top: 2rem;
         bottom: auto;
-        
         display: flex;
-        justify-content: center; /* CHANGED: Center the button */
+        justify-content: center; /* Center the button */
         width: 100%;
     }
-    
     /* 6. Adjust Standard Hero (sub-pages) */
     .hero-standard {
         height: auto;
@@ -600,13 +589,11 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         justify-content: center;
         text-align: center;
     }
-    
     .hero-standard .hero-title {
         align-items: center;
         text-align: center;
         width: 100%;
     }
-    
     /* 7. Reduce padding on sections */
     .intro-grid, 
     .section-header-wrapper, 
@@ -614,12 +601,10 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
-    
     /* Center the grid items so they don't stick to the left */
     .services-grid {
         justify-items: center;
     }
-
     /* 8. Service Cards: Make Wide (Banners) instead of Tall */
     .service-card {
         aspect-ratio: 16/9; 
@@ -627,11 +612,9 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         width: 100%; /* Ensures it takes available space up to the ratio limit */
         max-width: 600px; /* Optional: prevents it from getting too huge on larger phones */
     }
-    
     .service-info {
         text-align: center; /* Center text inside cards */
     }
-    
     .prop-image-wrapper {
         aspect-ratio: 2/1; /* Widescreen portfolio thumbs */
     }
