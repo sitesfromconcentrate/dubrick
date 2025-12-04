@@ -3,28 +3,35 @@
    ========================================================================== */
 
 /* --- Fonts --- */
+
 @font-face { font-family: 'Inter'; font-style: normal; src: url('assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Inter'; font-style: italic; src: url('assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Space Grotesk'; font-style: normal; src: url('assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype'); font-weight: 300 700;}
 
 /* --- Variables --- */
+
 :root {
-    --primary-bg: #F4F1EA;      /* "dutch cream" */
-    --secondary-bg: #1A1A1A;    /* "charcoal" */
+    --primary-bg: #F4F1EA;        /* "dutch cream" */
+    --secondary-bg: #1A1A1A;      /* "charcoal" */
     --text-main: #1A1A1A;
     --text-light: #F4F1EA;
     --font-main: 'Inter', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
     --site-max-width: 1600px;
-    --site-edge: 3rem; 
+    --site-edge: 3rem;              /* horizontal spacing */
+    --site-spacing: 4rem;           /* vertical spacing */
 }
 @media screen and (max-width: 1024px) {
-    :root { --site-edge: 1.5rem; } 
+    :root { 
+        --site-edge: 1.5rem; 
+        --site-spacing: 3rem;
+    } 
 }
 
 /* --- Resets & Base --- */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 4rem; background-color: var(--primary-bg); color: var(--text-main); }
+html { scroll-behavior: smooth; scroll-padding-top: var(--site-spacing); background-color: var(--primary-bg); color: var(--text-main); }
 body { font-family: var(--font-main); overflow-x: hidden; }
 .container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
 
@@ -233,7 +240,13 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
    5. INTRO SECTION ("Who We Are")
    ========================================================================== */
 
-.intro-grid { display: grid; grid-template-columns: 1fr 2fr; gap: var(--site-edge); padding-top: var(--site-edge); padding-bottom: var(--site-edge);}
+.intro-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 2fr; 
+    gap: var(--site-edge); 
+    padding-top: var(--site-spacing); 
+    padding-bottom: var(--site-spacing);
+}
 .section-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; padding-top: 1rem; }
 .about-line { border-top: 1px solid var(--text-main); width: 0; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s; }
 .reveal-text.visible .about-line { width: 100%; }
@@ -241,7 +254,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 
 /* Intro Mobile */
 @media screen and (max-width: 1024px) {
-    .intro { padding: 4rem 1.5rem; }
+    .intro { padding: var(--site-spacing) 1.5rem; }
     .intro-grid { grid-template-columns: 1fr; }
 }
 
@@ -249,7 +262,12 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
    6. SERVICES & REUSABLE COMPONENTS
    ========================================================================== */
 
-.section-header-wrapper { padding-top: 4rem; padding-bottom: 4rem; display: block; background: white; }
+.section-header-wrapper { 
+    padding-top: var(--site-spacing); 
+    padding-bottom: var(--site-spacing); 
+    display: block; 
+    background: white; 
+}
 .section-header-wrapper.bg-charcoal { background-color: var(--secondary-bg); color: var(--text-light); }
 .section-header-wrapper.bg-charcoal .section-title { color: var(--text-light); }
 .section-title { font-size: clamp(3rem, 5vw + 1rem, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.05em; }
@@ -289,7 +307,13 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
    7. CONTACT SECTION (Bottom of Index)
    ========================================================================== */
 
-.contact-section { background-color: var(--secondary-bg); color: var(--text-light); padding-top: 4rem; padding-bottom: 4rem; width: 100%; }
+.contact-section { 
+    background-color: var(--secondary-bg); 
+    color: var(--text-light); 
+    padding-top: var(--site-spacing); 
+    padding-bottom: var(--site-spacing); 
+    width: 100%; 
+}
 .contact-section .section-title, .contact-section a { color: var(--text-light); }
 .contact-section .info-label { color: rgba(244, 241, 234, 0.6); }
 /* Inverted Contact Section (Light Theme) */
@@ -324,7 +348,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 footer { 
     background: var(--secondary-bg); color: var(--text-light);
     width: 100%;
-    /* Note: Padding removed from here to allow background to be full width */
 }
 .footer-bottom {
     max-width: var(--site-max-width);
@@ -354,7 +377,7 @@ footer {
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
     gap: var(--site-edge); 
-    padding: var(--site-edge); 
+    padding: var(--site-spacing) var(--site-edge); 
     max-width: var(--site-max-width);
     margin: 0 auto;
 }
@@ -384,7 +407,7 @@ footer {
     display: grid; 
     grid-template-columns: 2fr 1fr; 
     gap: var(--site-edge);
-    padding: var(--site-edge); 
+    padding: var(--site-spacing) var(--site-edge); 
     max-width: var(--site-max-width);
     margin: 0 auto;
     border-bottom: 1px solid #e5e5e5;
@@ -395,7 +418,7 @@ footer {
     display: grid; 
     grid-template-columns: 1fr 2fr; /* 1fr Info, 2fr Form */
     gap: var(--site-edge);
-    padding: var(--site-edge); 
+    padding: var(--site-spacing) var(--site-edge); 
     max-width: var(--site-max-width); 
     margin: 0 auto;
 }
