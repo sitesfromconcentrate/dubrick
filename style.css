@@ -19,7 +19,7 @@
     --font-display: 'Space Grotesk', sans-serif;
     --site-max-width: 1600px;
     --site-edge: 3rem;              /* horizontal spacing */
-    --site-spacing: 4rem;           /* vertical spacing */
+    --site-spacing: 6rem;           /* vertical spacing */
 }
 @media screen and (max-width: 1024px) {
     :root { 
@@ -51,7 +51,7 @@ ul { list-style: none; }
 .delay-800 { transition-delay: 0.8s; }
 
 /* ==========================================================================
-   2. GLOBAL UI COMPONENTS (Cursor & Buttons)
+   2. CUSTOM CURSOR
    ========================================================================== */
 
 /* --- Custom Cursor --- */
@@ -60,15 +60,13 @@ body.custom-cursor-active, body.custom-cursor-active * { cursor: none !important
 #cursor-ring { width: 1.5rem; height: 1.5rem; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); position: fixed; z-index: 9999; pointer-events: none; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s ease-out; }
 body.hovering #cursor-dot { transform: translate(-50%, -50%) scale(0); }
 body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #ffffff; border-width: 0; }
-
-/* Hide custom cursor on any touch device or tablet */
-@media (pointer: coarse), (max-width: 1024px) { 
+@media (pointer: coarse), (max-width: 1024px) { /* hide on any touch device */
     #cursor-dot, #cursor-ring { display: none !important; } 
     body { cursor: auto !important; } 
 }
 
 /* ==========================================================================
-   BUTTONS (Refactored)
+   3. BUTTONS
    ========================================================================== */
 
 /* 1. Base Structure & Animation Logic */
@@ -78,13 +76,11 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     --btn-border: var(--text-main);     /* #1A1A1A */
     --btn-fill: var(--text-main);       /* Slide color */
     --btn-text-hover: var(--text-light);/* #F4F1EA */
-
     /* Layout */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem; /* Space between text and arrows */
-    
     /* Typography */
     font-family: var(--font-main);
     font-size: 0.875rem;
@@ -92,25 +88,21 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     letter-spacing: 0.1em;
     text-decoration: none;
     line-height: 1;
-
     /* Box Model */
     padding: 1rem 2rem; /* Increased vertical padding slightly for touch targets */
     background: transparent;
     border: 1px solid var(--btn-border);
     color: var(--btn-text);
     cursor: pointer;
-    
     /* Animation Setup */
     position: relative;
     overflow: hidden;
     transition: color 0.3s ease, border-color 0.3s ease;
     z-index: 1;
-    
     /* Reset for <button> elements */
     appearance: none;
     border-radius: 0;
 }
-
 /* 2. The Slide Fill Effect */
 .btn::before {
     content: '';
@@ -121,24 +113,18 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     height: 100%;
     background-color: var(--btn-fill);
     z-index: -1;
-    
-    /* Performance: Use transform instead of left/top */
     transform: translateX(-101%); 
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 /* 3. Hover State */
 .btn:hover {
     color: var(--btn-text-hover) !important;
     border-color: var(--btn-fill) !important; /* Border matches fill on hover */
 }
-
 .btn:hover::before {
     transform: translateX(0);
 }
-
 /* 4. Variants (Just variable swaps!) */
-
 /* Use on Dark Backgrounds (White Border -> White Fill -> Black Text) */
 .btn-inverse {
     --btn-text: var(--text-light);
@@ -146,7 +132,6 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     --btn-fill: var(--text-light);   /* Fills with White */
     --btn-text-hover: var(--text-main); /* Text turns Black */
 }
-
 /* 5. Accessibility Focus */
 .btn:focus-visible {
     outline: 2px solid var(--text-main);
@@ -154,7 +139,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 
 /* ==========================================================================
-   3. NAVIGATION
+   4. NAVIGATION
    ========================================================================== */
 
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); border-bottom: 1px solid transparent; transition: all 0.4s ease; }
@@ -168,18 +153,15 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .nav-link::after { content: ''; display: block; width: 0; height: 1px; background: currentColor; transition: width 0.3s; margin-top: 4px; }
 .nav-link:hover::after { width: 100%; }
 .nav-link.active-page::after { width: 100%; } /* keep underline persistent */
-
 /* Scrolled State */
 .nav.scrolled { background-color: rgba(244, 241, 234, 0.85); backdrop-filter: blur(10px); color: var(--text-main); border-bottom: 1px solid rgba(26, 26, 26, 0.1); }
 .nav.scrolled .logo-img { filter: none; }
-
 /* Mobile Menu */
 .mobile-menu-btn { display: none; background: none; border: none; color: inherit; cursor: pointer; }
 #mobile-menu { position: fixed; inset: 0; background-color: var(--secondary-bg); z-index: 60; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; color: var(--text-light); transform: translateX(100%); transition: transform 0.5s ease-in-out; }
 #mobile-menu.open { transform: translateX(0); }
 #close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
 .mobile-link { font-size: 2rem; text-transform: uppercase; }
-
 /* Nav Breakpoint (Includes Tablets & Landscape Mobile) */
 /* Changed to 1024px to catch iPad Portrait and similar tablets */
 @media screen and (max-width: 1024px), (pointer: coarse) {
@@ -188,25 +170,27 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 
 /* ==========================================================================
-   4. HERO SECTIONS
+   5. HERO SECTIONS
    ========================================================================== */
 
 /* --- Base Logic --- */
-.hero, .hero-standard {
+/* Updated: combined selector for big and small */
+.hero-big, .hero-small {
     position: relative; width: 100%; overflow: hidden; display: flex;
 }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .parallax-img { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; object-fit: cover; object-position: center; will-change: transform; }
 .hero-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.4); }
 
-/* --- A. Landing Page Hero (.hero) --- */
-.hero { 
+/* --- A. Landing Page Hero (.hero-big) --- */
+/* Renamed from .hero */
+.hero-big { 
     height: 100vh; 
     height: 100svh; 
     align-items: center; 
     justify-content: center; 
 }
-.hero .hero-content { 
+.hero-big .hero-content { 
     position: relative; z-index: 10; color: var(--text-light); padding: 1rem; text-align: center; 
 }
 .hero-title {
@@ -253,14 +237,14 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     .hide-mobile { display: none; }
 }
 
-/* --- Standardized Sub-Page Hero --- */
-.hero-standard {
+/* --- B. Sub-Page Hero (.hero-small) --- */
+.hero-small {
     height: 45vh; /* Much smaller than landing page */
     min-height: 420px;
     align-items: center; /* Vertically center content */
 }
-/* Typography for standard header */
-.hero-standard .hero-title {
+/* Typography for small header */
+.hero-small .hero-title {
     font-size: clamp(3rem, 6vw, 5.5rem); 
     line-height: 1.1;
     margin: 0;
@@ -269,11 +253,11 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     color: var(--text-light);
 }
 /* Ensure parallax works well in shorter container */
-.hero-standard .parallax-img {
+.hero-small .parallax-img {
     height: 120%; top: -10%;
 }
-/* The content wrapper inside .hero-standard */
-.hero-standard-content {
+/* The content wrapper inside .hero-small */
+.hero-small-content {
     position: relative;
     z-index: 10;
     width: 100%;
@@ -281,7 +265,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 
 /* ==========================================================================
-   5. INTRO SECTION ("Who We Are")
+   6. INTRO SECTION ("Who We Are")
    ========================================================================== */
 
 .intro-grid { 
@@ -303,7 +287,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 
 /* ==========================================================================
-   6. SERVICES & REUSABLE COMPONENTS
+   7. SERVICES & REUSABLE COMPONENTS
    ========================================================================== */
 
 .section-header-wrapper { 
@@ -361,7 +345,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 
 /* ==========================================================================
-   7. CONTACT SECTION (Bottom of Index)
+   8. CONTACT SECTION (Bottom of Index)
    ========================================================================== */
 
 .contact-section { 
@@ -402,7 +386,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 }
 
 /* ==========================================================================
-   8. FOOTER
+   9. FOOTER
    ========================================================================== */
 
 footer { 
@@ -426,7 +410,7 @@ footer {
 }
 
 /* ==========================================================================
-   9. SUB-PAGE LAYOUTS (Portfolio, Services, Properties)
+   10. SUB-PAGE LAYOUTS (Portfolio, Services, Properties)
    ========================================================================== */
 
 /* --- Portfolio Grid Layout --- */
@@ -542,7 +526,7 @@ footer {
 .box-dark .prop-stats-header { border-color: rgba(255, 255, 255, 0.2); }
 
 /* ==========================================================================
-   10. FORMS & INPUTS
+   11. FORMS & INPUTS
    ========================================================================== */
 
 /* Form Layout */
@@ -588,7 +572,7 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 }
 
 /* ==========================================================================
-   11. UNIFIED LANDING SECTION (Expertise -> Services -> Contact)
+   12. UNIFIED LANDING SECTION (Expertise -> Services -> Contact)
    ========================================================================== */
 
 /* The wrapper that holds the continuous background gradient */
@@ -694,14 +678,14 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 
 
 /* ==========================================================================
-   12. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS
+   14. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS
    ========================================================================== */
 
 /* Target devices in landscape with short height (Phones) */
 @media screen and (orientation: landscape) and (max-height: 500px) {
     
     /* 1. Force the Hero to fit the screen exactly (No Scrolling) */
-    .hero {
+    .hero-big {
         height: 100svh;       
         min-height: auto;  
         padding: 0;  
@@ -763,8 +747,8 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
     }
     
     /* 5. Standard Hero Adjustment for Sub-pages in Landscape */
-    .hero-standard {
-        min-height: 100svh;
+    .hero-small {
+        min-height: 70svh;
         padding-top: 4rem;
     }
 }
