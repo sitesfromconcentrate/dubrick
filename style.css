@@ -119,7 +119,10 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); border-bottom: 1px solid transparent; transition: all 0.4s ease; }
 .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .logo-img { height: 3.5rem; width: auto; transition: filter 0.4s; }
-.nav-links { display: flex; gap: 3rem; }
+.nav-links { 
+    display: flex; 
+    gap: var(--site-edge); /* Aligns nav item spacing with page margins */
+}
 .nav-link { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; position: relative; }
 .nav-link::after { content: ''; display: block; width: 0; height: 1px; background: currentColor; transition: width 0.3s; margin-top: 4px; }
 .nav-link:hover::after { width: 100%; }
@@ -336,7 +339,10 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 
 /* Contact Grid Mobile */
 @media screen and (max-width: 1024px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-grid { 
+        grid-template-columns: 1fr; 
+        gap: var(--site-spacing); 
+    }
     .contact-item-btn { justify-content: flex-start; }
     .contact-item-address { align-items: flex-start; text-align: left; }
 }
@@ -431,14 +437,26 @@ footer {
 
 /* Contact Page Layout Breakpoint */
 @media screen and (max-width: 1024px) { 
-    .contact-page-layout { grid-template-columns: 1fr; gap: 3rem; } 
-    .prop-detail-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-page-layout { 
+        grid-template-columns: 1fr; 
+        gap: var(--site-spacing); 
+    } 
+    .prop-detail-grid { 
+        grid-template-columns: 1fr; 
+        gap: var(--site-spacing); 
+    }
 }
 
 /* Left Column: Content */
 .prop-overview h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
 .prop-overview p { font-size: 1.5rem; font-weight: 300; line-height: 1.6; }
-.prop-content-footer { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+
+/* Property Footer (Back to Portfolio) */
+.prop-content-footer { 
+    margin-top: var(--site-spacing); 
+    padding-top: var(--site-spacing); 
+    border-top: 1px solid rgba(0, 0, 0, 0.1); 
+}
 
 /* Service Lists */
 .service-detail-block { margin-bottom: 2rem; }
@@ -669,7 +687,7 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
         height: auto;
         min-height: 300px;
         padding-top: 6rem;
-        padding-bottom: 3rem;
+        padding-bottom: var(--site-spacing);
         justify-content: center;
         text-align: center;
     }
