@@ -24,7 +24,7 @@
 
 /* --- Resets & Base --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; background-color: var(--primary-bg); color: var(--text-main); }
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; background-color: var(--primary-bg); color: var(--text-main); }
 body { font-family: var(--font-main); overflow-x: hidden; }
 .container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
 
