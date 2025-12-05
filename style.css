@@ -443,12 +443,12 @@ footer {
     padding: var(--site-spacing) var(--site-edge); 
     max-width: var(--site-max-width); 
     margin: 0 auto;
+    align-items: start; /* Ensures sidebars don't stretch weirdly */
 }
 
 /* Ensure the stats box fills the height in this layout if needed */
 .contact-page-layout .prop-stats-box {
     margin-bottom: 0;
-    height: 100%;
 }
 
 /* Contact Page Layout Breakpoint */
@@ -544,6 +544,31 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 /* Placeholder Styling */
 .form-input::placeholder { color: #999; font-weight: 300; }
 
+/* --- DARK BOX INPUT OVERRIDES (Added for Contact Form) --- */
+.box-dark .form-input {
+    color: var(--primary-bg);
+    border-bottom-color: rgba(244, 241, 234, 0.3);
+}
+.box-dark .form-input::placeholder {
+    color: rgba(244, 241, 234, 0.5);
+}
+.box-dark .form-input:focus {
+    background-color: rgba(244, 241, 234, 0.1);
+    border-color: var(--primary-bg);
+}
+.box-dark textarea.form-input {
+    background-color: rgba(244, 241, 234, 0.05);
+    border: 1px solid rgba(244, 241, 234, 0.3);
+}
+.box-dark textarea.form-input:focus {
+    background-color: rgba(244, 241, 234, 0.1);
+    border-color: var(--primary-bg);
+}
+.box-dark select.form-input option {
+    background-color: var(--secondary-bg);
+    color: var(--primary-bg);
+}
+
 /* Form Row Mobile */
 @media screen and (max-width: 1024px) {
     .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -597,46 +622,8 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
 }
 
 /* ==========================================================================
-   13. REFACTORED INLINE STYLES
+   13. UTILITY CLASSES
    ========================================================================== */
-
-/* --- Contact Page Specifics --- */
-.contact-detail-group {
-    margin-top: 1.5rem;
-}
-.contact-detail-group.bordered {
-    margin-top: 2rem;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    padding-top: 1.5rem;
-}
-.contact-subhead {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-.contact-address-text {
-    margin-bottom: 1rem;
-}
-.contact-phone-btn {
-    width: 100%;
-    text-align: center;
-}
-.contact-emergency-note {
-    margin-top: 1rem;
-    opacity: 0.6;
-    font-size: 0.85em;
-    line-height: 1.4;
-}
-.contact-form-intro {
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    opacity: 0.8;
-}
-.form-actions {
-    text-align: right;
-}
-.form-submit-btn {
-    min-width: 200px;
-}
 
 /* --- Services Page Sidebar --- */
 .sidebar-block {
@@ -653,7 +640,6 @@ textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1re
     margin-bottom: 0.5rem; 
     opacity: 0.8;
 }
-
 
 /* ==========================================================================
    14. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS

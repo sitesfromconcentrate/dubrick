@@ -29,65 +29,72 @@
     </header>
     <!-- Contact Grid -->
     <section class="contact-page-layout">
-        <!-- Left Column (1/3): Info & Hours -->
-        <div class="prop-stats-box reveal-text delay-300">
-            <h3 class="prop-stats-header">Contact Details</h3>
-            <!-- Head Office -->
-            <div class="service-detail-block contact-detail-group">
-                <h4 class="display-font contact-subhead">Head Office</h4>
-                <p class="service-body text-body-lg contact-address-text">584 Frederick Street<br>Kitchener, ON N2B 2A9</p>
-                <a href="tel:5195786077" class="btn hover-trigger contact-phone-btn">(519) 578-6077</a>
+        <!-- Left Column: Sidebar Boxes -->
+        <div class="sidebar-wrapper reveal-text delay-300">
+            <!-- Box 1: Details -->
+            <div class="prop-stats-box sidebar-block">
+                <h3 class="prop-stats-header">Contact Details</h3>
+                <ul class="detail-list-simple">
+                    <li style="margin-bottom: 1rem;">
+                        <strong>Head Office</strong><br>
+                        584 Frederick Street<br>Kitchener, ON N2B 2A9
+                    </li>
+                    <li>
+                        <a href="tel:5195786077" class="btn hover-trigger" style="width: 100%;">(519) 578-6077</a>
+                    </li>
+                </ul>
             </div>
-            <!-- Office Hours -->
-            <div class="service-detail-block contact-detail-group bordered">
-                <h4 class="display-font contact-subhead">Office Hours</h4>
+            <!-- Box 2: Hours -->
+            <div class="prop-stats-box sidebar-block">
+                <h3 class="prop-stats-header">Office Hours</h3>
                 <ul class="detail-list-simple">
                     <li><strong>Mon–Thu:</strong> 8:30 a.m. – 4:30 p.m.</li>
                     <li><strong>Friday:</strong> 8:30 a.m. – 1:00 p.m.</li>
                 </ul>
-                <p class="text-small-mute contact-emergency-note">
+                <p class="text-small-mute" style="margin-top: 1.5rem; opacity: 0.6; font-size: 0.85em; line-height: 1.4;">
                     <em>24/7 Emergency Service Available for Managed Tenants</em>
                 </p>
             </div>
         </div>
-        <!-- Right Column (2/3): Wider Form -->
-        <div class="prop-overview reveal-text delay-500">
-            <h2 class="display-font" style="margin-bottom: 1.5rem;">Send a Message</h2>
-            <!-- Replaced style with class -->
-            <p class="contact-form-intro">Please fill out the form below and our team will be in touch shortly.</p>
-            <form class="contact-form" action="#" method="POST">
-                <!-- Inputs (Unchanged) -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name" class="sr-only">Name</label>
-                        <input type="text" id="name" class="form-input hover-trigger" placeholder="Name" required>
+        <!-- Right Column: Form in Dark Box -->
+        <div class="reveal-text delay-500">
+            <div class="prop-stats-box box-dark">
+                <h2 class="display-font" style="margin-bottom: 1rem; color: var(--primary-bg);">Send a Message</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.8; font-weight: 300;">Please fill out the form below and our team will be in touch shortly.</p>
+                <form class="contact-form" action="#" method="POST">
+                    <!-- Inputs -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" id="name" class="form-input hover-trigger" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            <input type="email" id="email" class="form-input hover-trigger" placeholder="Email Address" required>
+                        </div>
                     </div>
+                    <!-- Full Width: Subject -->
                     <div class="form-group">
-                        <label for="email" class="sr-only">Email</label>
-                        <input type="email" id="email" class="form-input hover-trigger" placeholder="Email Address" required>
+                        <label for="subject" class="sr-only">Subject</label>
+                        <select id="subject" class="form-input hover-trigger">
+                            <option value="" disabled selected>Inquiry Type</option>
+                            <option value="tenant">Tenant Services</option>
+                            <option value="owner">Property Management Quote</option>
+                            <option value="vendor">Vendor / Contractor</option>
+                            <option value="other">General Inquiry</option>
+                        </select>
                     </div>
-                </div>
-                <!-- Full Width: Subject -->
-                <div class="form-group">
-                    <label for="subject" class="sr-only">Subject</label>
-                    <select id="subject" class="form-input hover-trigger">
-                        <option value="" disabled selected>Inquiry Type</option>
-                        <option value="tenant">Tenant Services</option>
-                        <option value="owner">Property Management Quote</option>
-                        <option value="vendor">Vendor / Contractor</option>
-                        <option value="other">General Inquiry</option>
-                    </select>
-                </div>
-                <!-- Full Width: Message -->
-                <div class="form-group">
-                    <label for="message" class="sr-only">Message</label>
-                    <textarea id="message" class="form-input hover-trigger" rows="5" placeholder="How can we help?" required></textarea>
-                </div>
-                <!-- Submit Button -->
-                <div class="form-actions">
-                    <button type="submit" class="btn hover-trigger form-submit-btn">Submit Inquiry</button>
-                </div>
-            </form>
+                    <!-- Full Width: Message -->
+                    <div class="form-group">
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea id="message" class="form-input hover-trigger" rows="5" placeholder="How can we help?" required></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="form-actions" style="text-align: right; margin-top: 1rem;">
+                        <button type="submit" class="btn btn-inverse hover-trigger" style="min-width: 200px;">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
     <!-- Footer (Injected) -->
