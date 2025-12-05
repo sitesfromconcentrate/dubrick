@@ -196,9 +196,9 @@ footer { background: var(--secondary-bg); color: var(--text-light); width: 100%;
 .info-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: rgba(244, 241, 234, 0.6); }
 .info-address { font-size: 1.125rem; line-height: 1.4; font-weight: 500; }
 
-/* ==========================================================================
-   6. SUBPAGE STYLING
-   ========================================================================== */
+/* ==================================
+   SUBPAGE STYLING
+================================== */
 
 /* --- Hero Small --- */
 .hero-small { position: relative; width: 100%; overflow: hidden; display: flex; height: 45vh; min-height: 420px; align-items: center; }
@@ -272,9 +272,9 @@ footer { background: var(--secondary-bg); color: var(--text-light); width: 100%;
 .box-dark select.form-input option { background-color: var(--secondary-bg); color: var(--primary-bg); }
 
 
-/* ==========================================================================
+/* ================================
    MOBILE PORTRAIT
-========================================================================== */
+================================ */
 
 @media screen and (max-width: 1024px) {
     :root { --site-edge: 1.5rem; --site-spacing: 3rem; } 
