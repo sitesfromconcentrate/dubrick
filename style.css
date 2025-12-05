@@ -1,13 +1,15 @@
 /* ==========================================================================
-   1. DEFAULTS & SETUP
+   DEFAULTS + SETUP
    ========================================================================== */
 
 /* Fonts */
+
 @font-face { font-family: 'Inter'; font-style: normal; src: url('assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Inter'; font-style: italic; src: url('assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Space Grotesk'; font-style: normal; src: url('assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype'); font-weight: 300 700;}
 
 /* Resets & Base Tags */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--site-spacing); background-color: var(--primary-bg); color: var(--text-main); }
 body { font-family: var(--font-main); overflow-x: hidden; }
@@ -104,10 +106,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .contact-form { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .form-group { position: relative; width: 100%; }
-.form-input {
-    width: 100%; padding: 1rem 0; background: transparent; border: none; border-bottom: 1px solid #ccc; border-radius: 0;
-    font-family: var(--font-main); font-size: 1rem; color: var(--text-main); transition: all 0.3s ease;
-}
+.form-input { width: 100%; padding: 1rem 0; background: transparent; border: none; border-bottom: 1px solid #ccc; border-radius: 0; font-family: var(--font-main); font-size: 1rem; color: var(--text-main); transition: all 0.3s ease; }
 textarea.form-input { resize: vertical; min-height: 100px; border: 1px solid #ccc; padding: 1rem; background-color: rgba(255, 255, 255, 0.5); }
 select.form-input { cursor: pointer; color: var(--text-main); background-color: transparent; }
 .form-input:focus { outline: none; border-color: var(--secondary-bg); background-color: rgba(255, 255, 255, 0.8); padding-left: 0.5rem; }
