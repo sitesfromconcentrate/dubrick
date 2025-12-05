@@ -163,6 +163,7 @@ footer { background: var(--secondary-bg); color: var(--text-light); width: 100%;
 .unified-bottom-wrapper .contact-section a,
 .unified-bottom-wrapper .contact-section .info-address { color: var(--text-main); }
 .unified-bottom-wrapper .contact-section .info-label { color: rgba(26, 26, 26, 0.6); }
+.unified-bottom-wrapper .contact-section .btn:hover { color: var(--text-light); }
 
 /* --- Reusable Section Header --- */
 .section-header-wrapper { padding-top: var(--site-spacing); padding-bottom: var(--site-spacing); display: block; background: white; }
