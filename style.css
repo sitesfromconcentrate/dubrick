@@ -320,5 +320,5 @@ footer { background: var(--secondary-bg); color: var(--text-light); width: 100%;
     .hero-footer { position: absolute; bottom: 1rem; left: 0; right: 0; margin-top: 0; display: flex; justify-content: center; width: 100%; }
     .hero-footer .btn { padding: 0.6rem 1.5rem; font-size: 0.75rem; }
     .hero-footer span { display: none; }
-    .hero-small { min-height: 70svh; padding-top: 4rem; }
+    .hero-small { min-height: 75svh; padding-top: 4rem; }
 }
