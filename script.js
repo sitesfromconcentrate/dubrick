@@ -5,6 +5,13 @@ import { loadPropertyPage } from './javascript/property.js';
 import { loadPortfolioGrid } from './javascript/portfolio.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- FORCE SCROLL TO TOP ---
+    // This tells the browser not to restore the previous scroll position
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    // This ensures the window is visually at the top
+    window.scrollTo(0, 0);
     // 1. Inject Static Components
     loadHeader();
     loadMobileMenu();
