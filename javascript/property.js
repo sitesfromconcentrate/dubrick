@@ -35,6 +35,31 @@ export function loadPropertyPage() {
                 </div>
             `).join('');
         }
+        // --- MAP INITIALIZATION START ---
+        // 1. Check if map container exists and has coordinates
+        const mapContainer = document.getElementById('property-map');
+        if (mapContainer && data.lat && data.lng) {
+            // 2. Initialize Leaflet
+            // We disable scrollWheelZoom so users don't get stuck while scrolling the page
+            const map = L.map('property-map', {
+                scrollWheelZoom: false
+            }).setView([data.lat, data.lng], 15);
+            // 3. Add Tiles (CartoDB Positron - clean, grey, professional)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(map);
+            // 4. Add Marker
+            L.marker([data.lat, data.lng]).addTo(map)
+                .bindPopup(`<b style="font-family: 'Space Grotesk'">${data.title}</b><br>${data.location}`)
+                .openPopup();
+            // 5. Force a resize to ensure tiles load correctly if container was hidden/animated
+            setTimeout(() => { map.invalidateSize(); }, 300);
+        } else if (mapContainer) {
+            // Hide container if no coordinates exist for this specific property
+            mapContainer.style.display = 'none';
+        }
     } else {
         // simple error handling
         const titleEl = document.getElementById('dynamic-title');

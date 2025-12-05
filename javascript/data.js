@@ -3,6 +3,8 @@ export const propertyData = {
         title: "Highland Plaza",
         subtitle: "Commercial • Retail",
         location: "Kitchener",
+        lat: 43.4418,
+        lng: -80.5055,
         image: "assets/images/prop-highland.jpg",
         description: "A premier commercial plaza situated in the heart of Kitchener's business district. Highland Plaza represents the perfect blend of accessibility and modern amenities. Managed by Dubrick since 2010, this location hosts a variety of high-traffic retail tenants.",
         stats: [
@@ -16,6 +18,8 @@ export const propertyData = {
         title: "The Frederick",
         subtitle: "Residential • High Rise",
         location: "Waterloo",
+        lat: 43.4643,
+        lng: -80.5204,
         image: "assets/images/prop-frederick.jpg",
         description: "Modern living meets historic charm. The Frederick is a flagship residential property offering panoramic views of the city. Our management team ensures 24/7 concierge service, immaculate groundskeeping, and community event coordination for residents.",
         stats: [
@@ -29,6 +33,8 @@ export const propertyData = {
         title: "Iron Horse Centre",
         subtitle: "Industrial • Logistics",
         location: "Kitchener",
+        lat: 43.4503,
+        lng: -80.4832,
         image: "assets/images/prop-ironhorse.jpg",
         description: "Strategic industrial positioning with direct access to major highways. The Iron Horse Centre is a hub for logistics and manufacturing. Dubrick provides comprehensive facility management, including heavy-duty HVAC maintenance and security services.",
         stats: [
@@ -42,6 +48,8 @@ export const propertyData = {
         title: "Westmount Towers",
         subtitle: "Residential • Multi-Family",
         location: "Waterloo",
+        lat: 43.4561,
+        lng: -80.5385,
         image: "assets/images/prop-westmount.jpg",
         description: "Located in the prestigious Westmount neighborhood, these twin towers offer spacious layouts and extensive amenities. Our recent capital improvement projects have updated the balconies and lobby, significantly increasing tenant satisfaction and asset value.",
         stats: [
@@ -55,6 +63,8 @@ export const propertyData = {
         title: "King Street Lofts",
         subtitle: "Mixed Use • Heritage",
         location: "Kitchener",
+        lat: 43.4516,
+        lng: -80.4925,
         image: "assets/images/prop-kingst.jpg",
         description: "A stunning adaptive reuse project in the downtown core. King Street Lofts combines ground-floor boutique retail with three floors of hard-loft residential suites. This property requires specialized heritage maintenance which our team handles with care.",
         stats: [
@@ -68,6 +78,8 @@ export const propertyData = {
         title: "Tech Town Commons",
         subtitle: "Commercial • Office",
         location: "Waterloo",
+        lat: 43.4723,
+        lng: -80.5449,
         image: "assets/images/prop-techtown.jpg",
         description: "Located adjacent to the University district, Tech Town Commons serves the region's booming technology sector. The property features open-concept floor plates, high-speed fiber connectivity, and collaborative common areas designed for innovation.",
         stats: [
@@ -81,6 +93,8 @@ export const propertyData = {
         title: "Grand River Medical",
         subtitle: "Healthcare • Medical Office",
         location: "Kitchener",
+        lat: 43.4554,
+        lng: -80.5106,
         image: "assets/images/prop-medical.jpg",
         description: "A state-of-the-art medical facility located directly across from the regional hospital. This property requires specialized management including rigorous air quality standards, bio-waste disposal coordination, and accessible design compliance for patients.",
         stats: [
@@ -94,6 +108,8 @@ export const propertyData = {
         title: "Riverview Townhomes",
         subtitle: "Residential • Multi-Family",
         location: "Cambridge",
+        lat: 43.3764,
+        lng: -80.3232,
         image: "assets/images/prop-townhouse.jpg",
         description: "A family-oriented complex nestled along the Grand River. Riverview Townhomes offers 3-bedroom layouts with private yards. Dubrick handles all landscaping, snow removal, and capital projects, including the recent roof replacement program completed in 2024.",
         stats: [

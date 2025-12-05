@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/images/logo/appletouchicon.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
     <!-- Cursor -->
@@ -24,26 +26,30 @@
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-small-content container">
-            <p id="dynamic-subtitle" class="hero-subtitle hero-subtitle-prop reveal-text">Loading...</p>
             <h1 id="dynamic-title" class="hero-title display-font reveal-text delay-100">Loading...</h1>
+            <p id="dynamic-subtitle" class="hero-subtitle hero-subtitle-prop reveal-text">Loading...</p>
         </div>
     </header>
-    <!-- Content Section -->
-    <section class="prop-detail-grid">
-        <!-- Left Column -->
+    <!-- Content Section: 3 Column Layout -->
+    <section class="prop-page-3col">
+        <!-- Column 1: Overview, Location, Button -->
         <div class="prop-overview reveal-text delay-300">
-            <h2 class="display-font">Overview</h2>
+            <h2 class="display-font">Property Overview</h2>
             <p id="dynamic-desc">Loading property details...</p>
+            <!-- Back Button -->
             <div class="prop-content-footer">
                  <a href="portfolio.html" class="btn hover-trigger"><span>←</span> Back to Portfolio</a>
             </div>
         </div>
-        <!-- Right Column -->
+        <!-- Column 2: Map -->
+        <div class="prop-map-column reveal-text delay-300">
+            <div id="property-map" class="map-container"></div>
+        </div>
+        <!-- Column 3: Stats (Injected) -->
         <div class="prop-stats-box reveal-text delay-300">
             <h3 class="prop-stats-header">Property Stats</h3>
-            <div id="dynamic-stats">
-                <!-- Injected Here -->
-            </div>
+            <div id="dynamic-stats"></div>
+            <!-- Moved Location Block (Inline styles removed) -->
             <div class="prop-location-group">
                 <p class="prop-location-label">Location</p>
                 <p id="dynamic-location" class="prop-location-value">Loading...</p>
