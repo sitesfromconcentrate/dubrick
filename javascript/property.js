@@ -52,7 +52,7 @@ export function loadPropertyPage() {
             }).addTo(map);
             // 4. Add Marker
             L.marker([data.lat, data.lng]).addTo(map)
-                .bindPopup(`<b style="font-family: 'Space Grotesk'">${data.title}</b><br>${data.location}`)
+                .bindPopup(`<b style="font-family: 'Grotesk'">${data.title}</b><br>${data.location}`)
                 .openPopup();
             // 5. Force a resize to ensure tiles load correctly if container was hidden/animated
             setTimeout(() => { map.invalidateSize(); }, 300);
