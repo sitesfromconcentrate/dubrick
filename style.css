@@ -1,14 +1,28 @@
 /* ==========================================================================
-   1. CORE SETUP
+   1. DEFAULTS & SETUP
    ========================================================================== */
 
-/* --- Fonts --- */
-
+/* Fonts */
 @font-face { font-family: 'Inter'; font-style: normal; src: url('assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Inter'; font-style: italic; src: url('assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Space Grotesk'; font-style: normal; src: url('assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype'); font-weight: 300 700;}
 
-/* --- Variables --- */
+/* Resets & Base Tags */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--site-spacing); background-color: var(--primary-bg); color: var(--text-main); }
+body { font-family: var(--font-main); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Utility Classes */
+.container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
+.display-font { font-family: var(--font-display); }
+.italic { font-style: italic; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* ==========================================================================
+   2. REPEATED VARIABLES (:ROOT)
+   ========================================================================== */
 
 :root {
     --primary-bg: #F4F1EA;        /* "dutch cream" */
@@ -21,28 +35,19 @@
     --site-edge: 3rem;              /* horizontal spacing */
     --site-spacing: 3rem;           /* vertical spacing */
 }
-@media screen and (max-width: 1024px) {
-    :root { 
-        --site-edge: 1.5rem; 
-        --site-spacing: 3rem;
-    } 
-}
 
-/* --- Reset & Base --- */
+/* ==========================================================================
+   3. CUSTOM CURSOR & GLOBAL ANIMATIONS
+   ========================================================================== */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--site-spacing); background-color: var(--primary-bg); color: var(--text-main); }
-body { font-family: var(--font-main); overflow-x: hidden; }
-.container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
+/* Custom Cursor */
+body.custom-cursor-active, body.custom-cursor-active * { cursor: none !important; }
+#cursor-dot { width: 0.4rem; height: 0.4rem; background-color: white; border-radius: 50%; position: fixed; z-index: 10000; pointer-events: none; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: transform 0.15s ease; }
+#cursor-ring { width: 1.5rem; height: 1.5rem; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); position: fixed; z-index: 9999; pointer-events: none; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s ease-out; }
+body.hovering #cursor-dot { transform: translate(-50%, -50%) scale(0); }
+body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #ffffff; border-width: 0; }
 
-/* --- Global Typography --- */
-
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-.display-font { font-family: var(--font-display); }
-.italic { font-style: italic; }
-
-/* --- Global Animations (Reveal & Parallax) --- */
+/* Scroll Reveal Animations */
 .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-text.visible { opacity: 1; transform: translateY(0); }
 .delay-100 { transition-delay: 0.1s; }
@@ -50,98 +55,16 @@ ul { list-style: none; }
 .delay-500 { transition-delay: 0.5s; }
 .delay-800 { transition-delay: 0.8s; }
 
-/* ==========================================================================
-   2. CUSTOM CURSOR
-   ========================================================================== */
-
-/* --- Custom Cursor --- */
-body.custom-cursor-active, body.custom-cursor-active * { cursor: none !important; }
-#cursor-dot { width: 0.4rem; height: 0.4rem; background-color: white; border-radius: 50%; position: fixed; z-index: 10000; pointer-events: none; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: transform 0.15s ease; }
-#cursor-ring { width: 1.5rem; height: 1.5rem; border: 2px solid #ffffff; border-radius: 50%; box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); position: fixed; z-index: 9999; pointer-events: none; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s ease-out; }
-body.hovering #cursor-dot { transform: translate(-50%, -50%) scale(0); }
-body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #ffffff; border-width: 0; }
-@media (pointer: coarse), (max-width: 1024px) { /* hide on any touch device */
-    #cursor-dot, #cursor-ring { display: none !important; } 
-    body { cursor: auto !important; } 
-}
+/* Parallax Base */
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.parallax-img { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; object-fit: cover; object-position: center; will-change: transform; }
+.hero-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.4); }
 
 /* ==========================================================================
-   3. BUTTONS
+   4. REUSABLE COMPONENTS
    ========================================================================== */
 
-/* 1. Base Structure & Animation Logic */
-.btn {
-    /* -- Default Theme (Dark on Light) -- */
-    --btn-text: var(--text-main);       /* #1A1A1A */
-    --btn-border: var(--text-main);     /* #1A1A1A */
-    --btn-fill: var(--text-main);       /* Slide color */
-    --btn-text-hover: var(--text-light);/* #F4F1EA */
-    /* Layout */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem; /* Space between text and arrows */
-    /* Typography */
-    font-family: var(--font-main);
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    line-height: 1;
-    /* Box Model */
-    padding: 1rem 2rem; /* Increased vertical padding slightly for touch targets */
-    background: transparent;
-    border: 1px solid var(--btn-border);
-    color: var(--btn-text);
-    cursor: pointer;
-    /* Animation Setup */
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s ease, border-color 0.3s ease;
-    z-index: 1;
-    /* Reset for <button> elements */
-    appearance: none;
-    border-radius: 0;
-}
-/* 2. The Slide Fill Effect */
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--btn-fill);
-    z-index: -1;
-    transform: translateX(-101%); 
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-/* 3. Hover State */
-.btn:hover {
-    color: var(--btn-text-hover) !important;
-    border-color: var(--btn-fill) !important; /* Border matches fill on hover */
-}
-.btn:hover::before {
-    transform: translateX(0);
-}
-/* 4. Variants (Just variable swaps!) */
-/* Use on Dark Backgrounds (White Border -> White Fill -> Black Text) */
-.btn-inverse {
-    --btn-text: var(--text-light);
-    --btn-border: var(--text-light);
-    --btn-fill: var(--text-light);   /* Fills with White */
-    --btn-text-hover: var(--text-main); /* Text turns Black */
-}
-/* 5. Accessibility Focus */
-.btn:focus-visible {
-    outline: 2px solid var(--text-main);
-    outline-offset: 4px;
-}
-
-/* ==========================================================================
-   4. NAVIGATION
-   ========================================================================== */
-
+/* --- A. Navigation --- */
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); border-bottom: 1px solid transparent; transition: all 0.4s ease; }
 .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .logo-img { height: 3.5rem; width: auto; transition: filter 0.4s; }
@@ -149,45 +72,65 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .nav-link { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; position: relative; }
 .nav-link::after { content: ''; display: block; width: 0; height: 1px; background: currentColor; transition: width 0.3s; margin-top: 4px; }
 .nav-link:hover::after { width: 100%; }
-.nav-link.active-page::after { width: 100%; } /* keep underline persistent */
-/* Scrolled State */
+.nav-link.active-page::after { width: 100%; }
+/* Scrolled Nav State */
 .nav.scrolled { background-color: rgba(244, 241, 234, 0.85); backdrop-filter: blur(10px); color: var(--text-main); border-bottom: 1px solid rgba(26, 26, 26, 0.1); }
 .nav.scrolled .logo-img { filter: none; }
-/* Mobile Menu */
+/* Mobile Menu Overlay */
 .mobile-menu-btn { display: none; background: none; border: none; color: inherit; cursor: pointer; }
 #mobile-menu { position: fixed; inset: 0; background-color: var(--secondary-bg); z-index: 60; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem; color: var(--text-light); transform: translateX(100%); transition: transform 0.5s ease-in-out; }
 #mobile-menu.open { transform: translateX(0); }
 #close-menu { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: white; cursor: pointer; }
 .mobile-link { font-size: 2rem; text-transform: uppercase; }
-/* Changed to 1024px to catch iPad Portrait and similar tablets */
-@media screen and (max-width: 1024px), (pointer: coarse) {
-    .nav-links { display: none; }
-    .mobile-menu-btn { display: block; }
+
+/* --- B. Buttons --- */
+.btn {
+    --btn-text: var(--text-main); --btn-border: var(--text-main); --btn-fill: var(--text-main); --btn-text-hover: var(--text-light);
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    font-family: var(--font-main); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; line-height: 1;
+    padding: 1rem 2rem; background: transparent; border: 1px solid var(--btn-border); color: var(--btn-text); cursor: pointer;
+    position: relative; overflow: hidden; transition: color 0.3s ease, border-color 0.3s ease; z-index: 1; appearance: none; border-radius: 0;
+}
+.btn::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--btn-fill);
+    z-index: -1; transform: translateX(-101%); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn:hover { color: var(--btn-text-hover) !important; border-color: var(--btn-fill) !important; }
+.btn:hover::before { transform: translateX(0); }
+.btn:focus-visible { outline: 2px solid var(--text-main); outline-offset: 4px; }
+.btn-inverse { --btn-text: var(--text-light); --btn-border: var(--text-light); --btn-fill: var(--text-light); --btn-text-hover: var(--text-main); }
+
+/* --- C. Forms (Base Styles) --- */
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.form-group { position: relative; width: 100%; }
+.form-input {
+    width: 100%; padding: 1rem 0; background: transparent; border: none; border-bottom: 1px solid #ccc; border-radius: 0;
+    font-family: var(--font-main); font-size: 1rem; color: var(--text-main); transition: all 0.3s ease;
+}
+textarea.form-input { resize: vertical; min-height: 100px; border: 1px solid #ccc; padding: 1rem; background-color: rgba(255, 255, 255, 0.5); }
+select.form-input { cursor: pointer; color: var(--text-main); background-color: transparent; }
+.form-input:focus { outline: none; border-color: var(--secondary-bg); background-color: rgba(255, 255, 255, 0.8); padding-left: 0.5rem; }
+.form-input::placeholder { color: #999; font-weight: 300; }
+
+/* --- D. Footer --- */
+footer { background: var(--secondary-bg); color: var(--text-light); width: 100%; }
+.footer-bottom {
+    max-width: var(--site-max-width); margin: 0 auto; padding: 1.5rem var(--site-edge); 
+    border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: flex-end;
+    font-size: 0.7rem; letter-spacing: 0.1em; 
 }
 
 /* ==========================================================================
-   5. HERO SECTIONS
+   5. LANDING PAGE STYLING (INDEX.HTML)
    ========================================================================== */
 
-/* --- Base Logic --- */
-.hero-big, .hero-small { position: relative; width: 100%; overflow: hidden; display: flex; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.parallax-img { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; object-fit: cover; object-position: center; will-change: transform; }
-.hero-overlay { position: absolute; inset: 0; background-color: rgba(0,0,0,0.4); }
-
-/* --- A. Landing Page Hero (.hero-big) --- */
-.hero-big { 
-    height: 100vh; 
-    height: 100svh; 
-    align-items: center; 
-    justify-content: center; 
-}
-.hero-big .hero-content { 
-    position: relative; z-index: 10; color: var(--text-light); padding: 1rem; text-align: center; 
-}
+/* --- A. Hero Big --- */
+.hero-big { position: relative; width: 100%; overflow: hidden; display: flex; height: 100vh; height: 100svh; align-items: center; justify-content: center; }
+.hero-big .hero-content { position: relative; z-index: 10; color: var(--text-light); padding: 1rem; text-align: center; }
 .hero-title { display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 0.85; margin-bottom: 2rem; }
 .hero-subtitle { letter-spacing: 0.6rem; font-weight: 700; font-size: clamp(1rem, 2.5vw, 1.5rem); text-align: center; }
-/* Landing Line Reveal */
+/* Line Reveal Animation */
 .hero-line-reveal { display: block; margin: 0; }
 .hero-line-1 { font-size: clamp(4rem, 13vw, 8.8rem); }
 .hero-line-2 { font-size: clamp(3.2rem, 10vw, 7.5rem); }
@@ -197,8 +140,8 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 /* Landing Footer */
 .hero-footer {
     position: absolute; bottom: 2rem; left: 0; right: 0; width: 100%; display: grid;
-    grid-template-columns: 1fr auto 1fr; align-items: center; color: var(--text-light); font-size: 0.75rem; text-transform: uppercase;
-    letter-spacing: 0.1em; z-index: 20;
+    grid-template-columns: 1fr auto 1fr; align-items: center; color: var(--text-light);
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; z-index: 20;
 }
 .hero-footer > *:first-child { justify-self: start; }
 .hero-footer > *:last-child { justify-self: end; }
@@ -209,70 +152,37 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     40% { transform: translateY(-10px); }
     60% { transform: translateY(-5px); }
 }
-/* Hero Footer Mobile */
-@media screen and (max-width: 1024px) {
-    .hero-footer { display: flex; justify-content: center; }
-    .hide-mobile { display: none; }
-}
 
-/* --- B. Sub-Page Hero (.hero-small) --- */
-.hero-small {
-    height: 45vh;
-    min-height: 420px;
-    align-items: center;/
-}
-.hero-small .hero-title {
-    font-size: clamp(3rem, 6vw, 5.5rem); 
-    margin: 0;
-    text-align: center;
-    align-items: center;
-    color: var(--text-light);
-    width: 100%;
-}
-.hero-small .parallax-img {
-    height: 120%; top: -10%;
-}
-.hero-small-content {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-}
-
-/* ==========================================================================
-   6. INTRO SECTION ("Who We Are")
-   ========================================================================== */
-
+/* --- B. Intro Section --- */
 .intro-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 2fr; 
-    gap: var(--site-edge); 
-    padding-top: var(--site-spacing); 
-    padding-bottom: var(--site-spacing);
+    display: grid; grid-template-columns: 1fr 2fr; gap: var(--site-edge); 
+    padding-top: var(--site-spacing); padding-bottom: var(--site-spacing);
 }
 .section-label { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1rem; padding-top: 1rem; }
 .about-line { border-top: 1px solid var(--text-main); width: 0; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s; }
 .reveal-text.visible .about-line { width: 100%; }
 .intro-text p { font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.8rem); font-weight: 300; line-height: 1.3; }
 
-/* Intro Mobile */
-@media screen and (max-width: 1024px) {
-    .intro { padding: var(--site-spacing) 1.5rem; }
-    .intro-grid { grid-template-columns: 1fr; }
+/* --- C. Unified Background Wrapper (Expertise + Services + Contact) --- */
+.unified-bottom-wrapper {
+    background: linear-gradient(to bottom, var(--secondary-bg) 0%, var(--secondary-bg) 15%, var(--primary-bg) 100%);
+    width: 100%;
 }
+.unified-bottom-wrapper .section-header-wrapper,
+.unified-bottom-wrapper .services-section,
+.unified-bottom-wrapper .contact-section { background: transparent !important; border: none; }
+/* Color Overrides for Gradient */
+.unified-bottom-wrapper .section-header-wrapper .section-title { color: var(--text-light); }
+.unified-bottom-wrapper .contact-section .section-title,
+.unified-bottom-wrapper .contact-section a,
+.unified-bottom-wrapper .contact-section .info-address { color: var(--text-main); }
+.unified-bottom-wrapper .contact-section .info-label { color: rgba(26, 26, 26, 0.6); }
 
-/* ==========================================================================
-   7. SERVICES & REUSABLE COMPONENTS
-   ========================================================================== */
-
-.section-header-wrapper { 
-    padding-top: var(--site-spacing); 
-    padding-bottom: var(--site-spacing); 
-    display: block; 
-    background: white; 
-}
-.section-header-wrapper.bg-charcoal { background-color: var(--secondary-bg); color: var(--text-light); }
-.section-header-wrapper.bg-charcoal .section-title { color: var(--text-light); }
+/* --- D. Reusable Section Header --- */
+.section-header-wrapper { padding-top: var(--site-spacing); padding-bottom: var(--site-spacing); display: block; background: white; }
 .section-title { font-size: clamp(3rem, 5vw + 1rem, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.05em; }
+
+/* --- E. Services Grid --- */
 .services-section { padding: 0; width: 100%; background: linear-gradient(to bottom, var(--secondary-bg) 0%, var(--primary-bg) 100%); }
 .service-container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; }
@@ -280,119 +190,40 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .service-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
 .service-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,1) 100%); opacity: 1; transition: opacity 0.4s ease; z-index: 1; }
 .service-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; transform: translateY(20px); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); z-index: 2; }
-/* Card Hover States */
+.service-tag { display: inline-block; background: var(--text-main); color: #fff; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.5rem; margin-bottom: 0.5rem; opacity: 0; transform: translateY(10px); transition: all 0.6s ease 0.1s; }
+.service-title { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+.service-desc { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; }
+/* Service Hover */
 .service-card:hover .service-img { transform: scale(1.1); }
 .service-card:hover .service-overlay { opacity: 0.6; }
 .service-card:hover .service-info { transform: translateY(0); }
-.service-tag { display: inline-block; background: var(--text-main); color: #fff; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.5rem; margin-bottom: 0.5rem; opacity: 0; transform: translateY(10px); transition: all 0.6s ease 0.1s; }
 .service-card:hover .service-tag { opacity: 1; transform: translateY(0); }
-.service-title { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
-.service-desc { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; }
 
-/* Service Container Mobile */
-
-@media screen and (max-width: 1024px) {
-    /* 1. Force the grid to be 1 column */
-    .services-grid { 
-        grid-template-columns: 1fr; 
-        width: 100%;
-    }
-    /* 2. Remove padding from the container so it touches edges */
-    .service-container { 
-        padding: 0 !important; /* Force override of global variables */
-        width: 100%;
-        max-width: 100%;
-    }
-    /* 3. Ensure the card takes up full width */
-    .service-card { 
-        width: 100%;
-        border-radius: 0; /* Looks cleaner on edge-to-edge mobile */
-        /* Optional: Adjust height if they look too tall on mobile */
-        aspect-ratio: 16/9; 
-    }
-    /* 4. Ensure the image covers that space */
-    .service-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-}
-
-/* ==========================================================================
-   8. CONTACT SECTION (Bottom of Index)
-   ========================================================================== */
-
-.contact-section { 
-    background-color: var(--secondary-bg); 
-    color: var(--text-light); 
-    padding-top: var(--site-spacing); 
-    padding-bottom: var(--site-spacing); 
-    width: 100%; 
-}
+/* --- F. Contact Strip --- */
+.contact-section { background-color: var(--secondary-bg); color: var(--text-light); padding-top: var(--site-spacing); padding-bottom: var(--site-spacing); width: 100%; }
 .contact-section .section-title, .contact-section a { color: var(--text-light); }
-.contact-section .info-label { color: rgba(244, 241, 234, 0.6); }
-.contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr 1fr; 
-    align-items: center; gap: 2rem;
-}
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; gap: 2rem; }
 .contact-item-title { text-align: left; }
 .contact-item-btn { display: flex; justify-content: center; align-items: center; }
 .contact-item-address { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
-.info-label {
-    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; 
-    margin-bottom: 0.5rem;
-}
+.info-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: rgba(244, 241, 234, 0.6); }
 .info-address { font-size: 1.125rem; line-height: 1.4; font-weight: 500; }
 
-/* Contact Grid Mobile */
-@media screen and (max-width: 1024px) {
-    .contact-grid { 
-        grid-template-columns: 1fr; 
-        gap: var(--site-spacing); 
-    }
-    .contact-item-btn { justify-content: flex-start; }
-    .contact-item-address { align-items: flex-start; text-align: left; }
-}
-
 /* ==========================================================================
-   9. FOOTER
+   6. SUBPAGE STYLING
    ========================================================================== */
 
-footer { 
-    background: var(--secondary-bg); color: var(--text-light);
-    width: 100%;
-}
-.footer-bottom {
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    padding: 1.5rem var(--site-edge); 
-    border-top: 1px solid rgba(255,255,255,0.1); /* Subtle white line on charcoal */
-    display: flex; justify-content: flex-end;
-    font-size: 0.7rem; letter-spacing: 0.1em; 
-}
+/* --- A. Hero Small --- */
+.hero-small { position: relative; width: 100%; overflow: hidden; display: flex; height: 45vh; min-height: 420px; align-items: center; }
+.hero-small .hero-title { font-size: clamp(3rem, 6vw, 5.5rem); margin: 0; text-align: center; align-items: center; color: var(--text-light); width: 100%; }
+.hero-small .parallax-img { height: 120%; top: -10%; }
+.hero-small-content { position: relative; z-index: 10; width: 100%; }
 
-/* Footer Mobile */
-@media screen and (max-width: 1024px) {
-    .footer-bottom { 
-        justify-content: flex-end; 
-    }
-}
-
-/* ==========================================================================
-   10. SUB-PAGE LAYOUTS (Portfolio, Services, Properties)
-   ========================================================================== */
-
-/* --- Portfolio Grid Layout --- */
+/* --- B. Portfolio Page --- */
 .portfolio-grid { 
-    position: relative; 
-    z-index: 2; 
-    background-color: var(--primary-bg); /* Ensures hero doesn't bleed through */
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: var(--site-edge); 
-    padding: var(--site-spacing) var(--site-edge); 
-    max-width: var(--site-max-width);
-    margin: 0 auto;
+    position: relative; z-index: 2; background-color: var(--primary-bg);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--site-edge); 
+    padding: var(--site-spacing) var(--site-edge); max-width: var(--site-max-width); margin: 0 auto;
 }
 .prop-card { display: block; color: var(--text-main); }
 .prop-image-wrapper { position: relative; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 1.5rem; }
@@ -400,99 +231,41 @@ footer {
 .prop-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.1); transition: opacity 0.3s; }
 .prop-card:hover .prop-img { transform: scale(1.05); }
 .prop-meta { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem; }
-.prop-title { font-size: 1.25rem; font-weight: 500; } /* Adjusted size for 4-col layout */
+.prop-title { font-size: 1.25rem; font-weight: 500; }
 .prop-type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #666; }
 .prop-loc { margin-top: 0.5rem; font-size: 0.9rem; color: #666; }
+/* Grid Responsive Breakpoints (Inline) */
+@media (max-width: 1400px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .portfolio-grid { grid-template-columns: 1fr; } }
 
-/* Responsive Grid Breakpoints */
-@media (max-width: 1400px) { 
-    .portfolio-grid { grid-template-columns: repeat(3, 1fr); } 
-}
-@media (max-width: 900px) { 
-    .portfolio-grid { grid-template-columns: repeat(2, 1fr); } 
-}
-@media (max-width: 600px) { 
-    .portfolio-grid { grid-template-columns: 1fr; } 
-}
-
-/* --- Two-Column Details (Original - Used by Services Page) --- */
+/* --- C. Services Page (Details) --- */
 .prop-detail-grid {
-    display: grid; 
-    grid-template-columns: 2fr 1fr; 
-    gap: var(--site-edge);
-    padding: var(--site-spacing) var(--site-edge); 
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    border-bottom: 1px solid #e5e5e5;
+    display: grid; grid-template-columns: 2fr 1fr; gap: var(--site-edge);
+    padding: var(--site-spacing) var(--site-edge); max-width: var(--site-max-width); margin: 0 auto; border-bottom: 1px solid #e5e5e5;
 }
-
-/* --- Three-Column Details (New - Used by Property Page) --- */
-.prop-page-3col {
-    display: grid;
-    /* Grid Ratio: 1fr Text, 1fr Map, 0.8fr Stats */
-    grid-template-columns: 1fr 1fr 0.8fr;
-    gap: var(--site-edge);
-    padding: var(--site-spacing) var(--site-edge);
-    max-width: var(--site-max-width);
-    margin: 0 auto;
-    border-bottom: 1px solid #e5e5e5;
-    align-items: start;
-}
-
-/* --- Special Layout for Contact Page (1/3 Left, 2/3 Right) --- */
-.contact-page-layout {
-    display: grid; 
-    grid-template-columns: 1fr 2fr; /* 1fr Info, 2fr Form */
-    gap: var(--site-edge);
-    padding: var(--site-spacing) var(--site-edge); 
-    max-width: var(--site-max-width); 
-    margin: 0 auto;
-    align-items: start; /* Ensures sidebars don't stretch weirdly */
-}
-
-/* Ensure the stats box fills the height in this layout if needed */
-.contact-page-layout .prop-stats-box {
-    margin-bottom: 0;
-}
-
-/* Contact/Prop Page Layout Breakpoint */
-@media screen and (max-width: 1024px) { 
-    .contact-page-layout, 
-    .prop-detail-grid,
-    .prop-page-3col { 
-        grid-template-columns: 1fr; 
-        gap: var(--site-spacing); 
-    } 
-}
-
-/* Left Column: Content */
-.prop-overview h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
-.prop-overview p { font-size: 1.5rem; font-weight: 300; line-height: 1.6; }
-
-/* Property Footer (Back to Portfolio) */
-.prop-content-footer { 
-    margin-top: 2rem; 
-    padding-top: 2rem; 
-    border-top: 1px solid rgba(0, 0, 0, 0.1); 
-}
-
-/* Service Lists */
 .service-detail-block { margin-bottom: 2rem; }
 .service-detail-block h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; font-family: var(--font-display); }
 .service-body { font-size: 1.125rem; line-height: 1.6; color: #4a4a4a; margin-bottom: 1rem; max-width: 65ch; }
 .detail-list { list-style: disc; margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; }
 .detail-list li { padding-left: 0.5rem; }
+.sidebar-block { margin-bottom: 2rem; }
+.sidebar-quote-text { margin-bottom: 1.5rem; line-height: 1.6; }
 .detail-list-simple { list-style: none; line-height: 2; }
 .detail-list-simple strong { font-weight: 600; color: var(--text-main); }
 
-/* Right Column: Stats Box */
-.prop-stats-box { background-color: #f9fafb; padding: 2rem; margin-bottom: 2rem; color: #1a1a1a; }
-.prop-stats-header {
-    font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em;
-    margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* --- D. Property Page (Details + Map) --- */
+.prop-page-3col {
+    display: grid; grid-template-columns: 1fr 1fr 0.8fr; gap: var(--site-edge);
+    padding: var(--site-spacing) var(--site-edge); max-width: var(--site-max-width); margin: 0 auto; border-bottom: 1px solid #e5e5e5; align-items: start;
 }
-
-/* Stats List */
+.hero-subtitle-prop { text-align: center; margin-top: 0.5rem; margin-bottom: 0.5rem; opacity: 0.8; text-transform: uppercase; color: var(--text-light); width: 100%; }
+.prop-overview h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
+.prop-overview p { font-size: 1.5rem; font-weight: 300; line-height: 1.6; }
+.prop-content-footer { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+/* Stats Column */
+.prop-stats-box { background-color: #f9fafb; padding: 2rem; margin-bottom: 2rem; color: #1a1a1a; }
+.prop-stats-header { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 #dynamic-stats { display: flex; flex-direction: column; gap: 0.5rem; }
 .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 1rem 0; }
 .stat-label { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; color: #666; }
@@ -500,248 +273,106 @@ footer {
 .prop-location-group { margin-top: 2rem; padding-top: 1rem; }
 .prop-location-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7280; margin-bottom: 0.5rem; }
 .prop-location-value { font-size: 1.125rem; font-weight: 500; }
+/* Map */
+.prop-map-column { width: 100%; height: 100%; }
+.map-container { width: 100%; height: 100%; min-height: 450px; background-color: #e5e5e5; position: relative; z-index: 1; }
 
-/* Dark Box Variant */
+/* --- E. Contact Page (Specific Layout) --- */
+.contact-page-layout {
+    display: grid; grid-template-columns: 1fr 2fr; gap: var(--site-edge);
+    padding: var(--site-spacing) var(--site-edge); max-width: var(--site-max-width); margin: 0 auto; align-items: start;
+}
+.contact-page-layout .prop-stats-box { margin-bottom: 0; }
+/* Dark Box & Input Overrides for Contact Form */
 .box-dark { background-color: var(--secondary-bg); color: var(--primary-bg); }
 .box-dark .prop-stats-header { border-color: rgba(255, 255, 255, 0.2); }
+.box-dark .form-input { color: var(--primary-bg); border-bottom-color: rgba(244, 241, 234, 0.3); }
+.box-dark .form-input::placeholder { color: rgba(244, 241, 234, 0.5); }
+.box-dark .form-input:focus { background-color: rgba(244, 241, 234, 0.1); border-color: var(--primary-bg); }
+.box-dark textarea.form-input { background-color: rgba(244, 241, 234, 0.05); border: 1px solid rgba(244, 241, 234, 0.3); }
+.box-dark textarea.form-input:focus { background-color: rgba(244, 241, 234, 0.1); border-color: var(--primary-bg); }
+.box-dark select.form-input option { background-color: var(--secondary-bg); color: var(--primary-bg); }
+
 
 /* ==========================================================================
-   11. FORMS & INPUTS
+   7. MOBILE & TABLET (PORTRAIT & GENERAL)
    ========================================================================== */
 
-/* Form Layout */
-.contact-form { display: flex; flex-direction: column; gap: 1.5rem; width: 100%; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.form-group { position: relative; width: 100%; }
-
-/* Screen Reader Only Label (Accessibility) */
-.sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
-}
-
-/* Input Styling */
-.form-input {
-    width: 100%; padding: 1rem 0; 
-    background: transparent; border: none; border-bottom: 1px solid #ccc; border-radius: 0;
-    font-family: var(--font-main); font-size: 1rem; color: var(--text-main);
-    transition: all 0.3s ease;
-}
-
-/* Textarea specific */
-textarea.form-input {
-    resize: vertical; min-height: 100px;
-    border: 1px solid #ccc; padding: 1rem; background-color: rgba(255, 255, 255, 0.5);
-}
-/* Dropdown specific */
-select.form-input { cursor: pointer; color: var(--text-main); background-color: transparent; }
-
-/* Focus States */
-.form-input:focus {
-    outline: none; border-color: var(--secondary-bg);
-    background-color: rgba(255, 255, 255, 0.8); padding-left: 0.5rem;
-}
-textarea.form-input:focus { border-color: var(--secondary-bg); padding-left: 1rem; }
-
-/* Placeholder Styling */
-.form-input::placeholder { color: #999; font-weight: 300; }
-
-/* --- DARK BOX INPUT OVERRIDES (Added for Contact Form) --- */
-.box-dark .form-input {
-    color: var(--primary-bg);
-    border-bottom-color: rgba(244, 241, 234, 0.3);
-}
-.box-dark .form-input::placeholder {
-    color: rgba(244, 241, 234, 0.5);
-}
-.box-dark .form-input:focus {
-    background-color: rgba(244, 241, 234, 0.1);
-    border-color: var(--primary-bg);
-}
-.box-dark textarea.form-input {
-    background-color: rgba(244, 241, 234, 0.05);
-    border: 1px solid rgba(244, 241, 234, 0.3);
-}
-.box-dark textarea.form-input:focus {
-    background-color: rgba(244, 241, 234, 0.1);
-    border-color: var(--primary-bg);
-}
-.box-dark select.form-input option {
-    background-color: var(--secondary-bg);
-    color: var(--primary-bg);
-}
-
-/* Form Row Mobile */
 @media screen and (max-width: 1024px) {
-    .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
-}
-
-/* ==========================================================================
-   12. UNIFIED LANDING SECTION (Expertise -> Services -> Contact)
-   ========================================================================== */
-
-/* The wrapper that holds the continuous background gradient */
-.unified-bottom-wrapper {
-    background: linear-gradient(to bottom, 
-        var(--secondary-bg) 0%,     /* Starts Black */
-        var(--secondary-bg) 15%,    /* Stays Black for the "Expertise" header */
-        var(--primary-bg) 100%      /* Fades to Cream for "Contact" */
-    );
-    width: 100%;
-}
-
-/* Make inner sections transparent so wrapper gradient shows */
-.unified-bottom-wrapper .section-header-wrapper,
-.unified-bottom-wrapper .services-section,
-.unified-bottom-wrapper .contact-section {
-    background: transparent !important; 
-    border: none; /* Removes any borders causing lines */
-}
-
-/* Force "Expertise" Header text to be White (since it sits on the dark part of gradient) */
-.unified-bottom-wrapper .section-header-wrapper .section-title {
-    color: var(--text-light);
-}
-
-/* Force "Contact" text to be Black (since it sits on the light part of gradient) */
-.unified-bottom-wrapper .contact-section .section-title,
-.unified-bottom-wrapper .contact-section a,
-.unified-bottom-wrapper .contact-section .info-address {
-    color: var(--text-main);
-}
-.unified-bottom-wrapper .contact-section .info-label {
-    color: rgba(26, 26, 26, 0.6);
-}
-
-/* ==========================================================================
-   13. UTILITY CLASSES
-   ========================================================================== */
-
-/* --- Services Page Sidebar --- */
-.sidebar-block {
-    margin-bottom: 2rem;
-}
-.sidebar-quote-text {
-    margin-bottom: 1.5rem; 
-    line-height: 1.6;
-}
-
-/* --- Property Page specific overrides --- */
-.hero-subtitle-prop {
-    text-align: center;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem; 
-    opacity: 0.8;
-    text-transform: uppercase;
-    color: var(--text-light);
-    width: 100%;
-}
-
-/* ==========================================================================
-   MAP STYLING
-   ========================================================================== */
-
-/* Middle Column container for Map */
-.prop-map-column {
-    width: 100%;
-    /* Ensure it fills the grid cell */
-    height: 100%;
-}
-
-.map-container {
-    width: 100%;
-    /* Height logic: 
-       On desktop 3-col: fit height of column (often dictated by text length in Col 1), 
-       but enforce a minimum so it's not tiny if text is short. 
-    */
-    height: 100%;
-    min-height: 450px; 
-    background-color: #e5e5e5;
-    position: relative;
-    z-index: 1; /* Ensure it sits below navbar */
-}
-
-/* Mobile adjustments for map */
-@media screen and (max-width: 1024px) {
-    .map-container {
-        /* On stack, give it fixed height */
-        height: 350px;
-        margin-bottom: 2rem;
-    }
-}
-
-/* ==========================================================================
-   14. MOBILE LANDSCAPE SPECIFIC ADJUSTMENTS
-   ========================================================================== */
-
-/* Target devices in landscape with short height (Phones) */
-@media screen and (orientation: landscape) and (max-height: 500px) {
+    /* Global vars adjustment */
+    :root { --site-edge: 1.5rem; --site-spacing: 3rem; } 
     
-    /* 1. Force the Hero to fit the screen exactly (No Scrolling) */
-    .hero-big {
-        height: 100svh;       
-        min-height: auto;  
-        padding: 0;  
-        flex-direction: column;   
-        align-items: center;
-        justify-content: center;
-    }
+    /* Cursor: Disable on touch */
+    #cursor-dot, #cursor-ring { display: none !important; } 
+    body { cursor: auto !important; } 
 
-    /* 2. Adjust Content Wrapper */
-    .hero-content {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        /* Pull content up slightly to make room for the bottom button */
-        margin-bottom: 2rem; 
-        z-index: 10;
-    }
+    /* Navigation */
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+    
+    /* Hero Footer (Index) */
+    .hero-footer { display: flex; justify-content: center; }
+    .hide-mobile { display: none; }
 
-    .hero-title {
-        align-items: center;
-        margin-bottom: 0.5rem;
-        line-height: 0.9; /* Tighten line height */
-    }
+    /* Intro Section */
+    .intro { padding: var(--site-spacing) 1.5rem; }
+    .intro-grid { grid-template-columns: 1fr; }
 
-    /* 3. Switch Font Units to VH (Viewport Height) 
-       This ensures text shrinks based on how short the screen is */
+    /* Services Grid (Landing) */
+    .services-grid { grid-template-columns: 1fr; width: 100%; }
+    .service-container { padding: 0 !important; width: 100%; max-width: 100%; }
+    .service-card { width: 100%; border-radius: 0; aspect-ratio: 16/9; }
+    .service-img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Contact Strip (Landing) */
+    .contact-grid { grid-template-columns: 1fr; gap: var(--site-spacing); }
+    .contact-item-btn { justify-content: flex-start; }
+    .contact-item-address { align-items: flex-start; text-align: left; }
+
+    /* Forms */
+    .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* Subpage Grids */
+    .contact-page-layout, .prop-detail-grid, .prop-page-3col { grid-template-columns: 1fr; gap: var(--site-spacing); } 
+    
+    /* Map */
+    .map-container { height: 350px; margin-bottom: 2rem; }
+
+    /* Footer */
+    .footer-bottom { justify-content: flex-end; }
+}
+
+@media (pointer: coarse) {
+    /* Redundant safety for touch devices regardless of size */
+    #cursor-dot, #cursor-ring { display: none !important; } 
+    body { cursor: auto !important; } 
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+}
+
+/* ==========================================================================
+   8. MOBILE LANDSCAPE
+   ========================================================================== */
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    /* Force Hero Big to fit without scrolling */
+    .hero-big { height: 100svh; min-height: auto; padding: 0; flex-direction: column; align-items: center; justify-content: center; }
+    
+    /* Content Adjustments */
+    .hero-content { width: 100%; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; z-index: 10; }
+    .hero-title { align-items: center; margin-bottom: 0.5rem; line-height: 0.9; }
+    
+    /* VH units for tight height scaling */
     .hero-line-1 { font-size: 16vh; }
     .hero-line-2 { font-size: 13vh; }
     .hero-line-3 { font-size: 10vh; }
+    .hero-subtitle { text-align: center; font-size: 0.8rem; margin-top: 0.5rem; }
 
-    .hero-subtitle { 
-        text-align: center; 
-        font-size: 0.8rem; /* Smaller subtitle */
-        margin-top: 0.5rem;
-    }
-
-    /* 4. Position Footer/Button tight to bottom */
-    .hero-footer {
-        position: absolute; 
-        bottom: 1rem; /* Stick to bottom */
-        left: 0;
-        right: 0;
-        margin-top: 0;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* Make the button slightly smaller to save space */
-    .hero-footer .btn {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.75rem;
-    }
-
-    /* Hide extra footer elements in landscape to save clutter */
-    .hero-footer span {
-        display: none;
-    }
+    /* Footer / Button Positioning */
+    .hero-footer { position: absolute; bottom: 1rem; left: 0; right: 0; margin-top: 0; display: flex; justify-content: center; width: 100%; }
+    .hero-footer .btn { padding: 0.6rem 1.5rem; font-size: 0.75rem; }
+    .hero-footer span { display: none; }
     
-    /* 5. Standard Hero Adjustment for Sub-pages in Landscape */
-    .hero-small {
-        min-height: 70svh;
-        padding-top: 4rem;
-    }
+    /* Hero Small Adjustments */
+    .hero-small { min-height: 70svh; padding-top: 4rem; }
 }
