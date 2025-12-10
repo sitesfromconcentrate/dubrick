@@ -73,14 +73,13 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
     /* --- Navigation --- */
 .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); border-bottom: 1px solid transparent; transition: all 0.4s ease; }
 .navbar { display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 0.3rem; padding-bottom: 0.3rem; }
-.logo-img { height: 3.5rem; width: auto; transition: filter 0.4s; }
+.logo-img { height: 3.5rem; width: auto; transition: filter 0.4s; mix-blend-mode: normal; }
 .nav-links { display: flex; gap: var(--site-edge); }
 .nav-link { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; position: relative; font-weight: 600; }
 .nav-link::after { content: ''; display: block; width: 0; height: 1px; background: currentColor; transition: width 0.3s; margin-top: 4px; }
 .nav-link:hover::after { width: 100%; }
 .nav-link.active-page::after { width: 100%; }
-.nav.scrolled { background-color: rgba(244, 241, 234, 0.85); backdrop-filter: blur(10px); color: var(--text-main); border-bottom: 1px solid rgba(26, 26, 26, 0.1); }
-.nav.scrolled .logo-img { filter: none; }
+.nav.scrolled { background-color: rgba(30, 76, 126, 1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 
     /* --- Mobile Menu Overlay --- */
 .mobile-menu-btn { display: none; background: none; border: none; color: inherit; cursor: pointer; }
