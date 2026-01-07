@@ -3,27 +3,23 @@
 ======================== */
 
     /* --- Fonts --- */
-
 @font-face { font-family: 'Inter'; font-style: normal; src: url('assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Inter'; font-style: italic; src: url('assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype'); font-weight: 100 900; }
 @font-face { font-family: 'Grotesk'; font-style: normal; src: url('assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype'); font-weight: 300 700;}
 
     /* --- Reset & Base Tags --- */
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--site-spacing); background-color: var(--primary-bg); color: var(--text-main); }
 body { font-family: var(--font-main); overflow-x: hidden; }
 .container { max-width: var(--site-max-width); margin: 0 auto; padding: 0 var(--site-edge); } /* TODO: strip this down */
 
     /* --- Text Constants --- */
-
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 .display-font { font-family: var(--font-display); }
 .italic { font-style: italic; }
 
     /* --- A11Y Accessibility --- */
-    
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 /* =======================
@@ -31,10 +27,16 @@ ul { list-style: none; }
 ========================== */
 
 :root {
-    --primary-bg: #F4F1EA;        /* "dutch cream" */
-    --secondary-bg: #1A1A1A;      /* "charcoal" */
-    --text-main: #1A1A1A;
-    --text-light: #F4F1EA;
+    /* --- Brand Colors --- */
+    --brand-cream: #F4F1EA;       /* "Dutch Cream" */
+    --brand-charcoal: #1A1A1A;    /* "Charcoal" */
+    --brand-blue: #1E4C7E;        /* Official Blue */
+    /* --- Functional Mappings --- */
+    --primary-bg: var(--brand-cream);
+    --secondary-bg: var(--brand-charcoal);
+    --text-main: var(--brand-charcoal);
+    --text-light: var(--brand-cream);
+    /* --- Configuration --- */
     --font-main: 'Inter', sans-serif;
     --font-display: 'Grotesk', sans-serif;
     --site-max-width: 1600px;
@@ -79,7 +81,7 @@ body.hovering #cursor-ring { width: 3.3rem; height: 3.3rem; background-color: #f
 .nav-link::after { content: ''; display: block; width: 0; height: 1px; background: currentColor; transition: width 0.3s; margin-top: 4px; }
 .nav-link:hover::after { width: 100%; }
 .nav-link.active-page::after { width: 100%; }
-.nav.scrolled { background-color: rgba(30, 76, 126, 1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.nav.scrolled { background-color: var(--brand-blue); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 
     /* --- Mobile Menu Overlay --- */
 .mobile-menu-btn { display: none; background: none; border: none; color: inherit; cursor: pointer; }
@@ -122,7 +124,7 @@ footer { background: var(--secondary-bg); color: var(--text-light); width: 100%;
 .hero-title { display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 0.85; margin-bottom: 2rem; }
 .hero-subtitle { letter-spacing: 0.6rem; font-weight: 700; font-size: clamp(1rem, 2.5vw, 1.5rem); text-align: center; }
 
-/* Line Reveal Animation */
+/* --- Line Reveal Animation --- */
 .hero-line-reveal { display: block; margin: 0; }
 .hero-line-1 { font-size: clamp(4rem, 13vw, 8.8rem); }
 .hero-line-2 { font-size: clamp(3.2rem, 10vw, 7.5rem); }
@@ -130,7 +132,7 @@ footer { background: var(--secondary-bg); color: var(--text-light); width: 100%;
 .hero-line-reveal > span { display: inline-block; transform: translateY(110%); transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal-text.visible.hero-line-reveal > span { transform: translateY(0); }
 
-/* Landing Footer */
+/* --- Landing Footer --- */
 .hero-footer { 
     position: absolute; 
     bottom: 2rem; 
